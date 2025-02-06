@@ -2,7 +2,7 @@
 @use 'core/all.scss' as *;
 // todo --------------------------- Modules ------------------------------------
 @use 'modules/preloader';
-// @use 'modules/parallax';
+@use 'modules/parallax';
 // todo --------------------------- Assets -------------------------------------
 @use 'assets/burger-button';
 // @use 'assets/menu-float';
@@ -25,9 +25,9 @@
 @use 'section/section-offer.scss';
 // todo ------------------------ Default fonts ---------------------------------
 // &display=swap&subset=cyrillic-ext
-// @import url('https://fonts.googleapis.com/css?family=Oswald:300,regular,500,600,700&display=swap&subset=cyrillic-ext');
 @import url('https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap&subset=cyrillic-ext');
-// @import url('https://fonts.googleapis.com/css?family=Great+Vibes:regular&display=swap&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Shantell+Sans:300,regular,500,600,700,800&display=swap&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap&subset=cyrillic-ext');
 // #region
 // todo ---------------------------- Style -------------------------------------
 .wrapper {
@@ -39,7 +39,7 @@
 }
 
 [class*='_container'] {
-	max-width: $maxWidthContainer;
+	max-width: $maxWidth;
 	box-sizing: content-box;
 	margin: 0 auto;
 	padding: 0 2rem;

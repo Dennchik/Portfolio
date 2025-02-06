@@ -1,7 +1,6 @@
 import anime from 'animejs';
 
 //* ----------------------------------------------------------------------------
-
 export function buttonShow() {
 	let drawer_open = false;
 	const openButtons = document.querySelectorAll('._open-button');
@@ -68,6 +67,46 @@ export function buttonShow() {
 	}
 }
 
+//* ----------------------------------------------------------------------------
+export function timeLineTextItem() {
+	let timeline = anime.timeline({
+		duration: 750,
+	});
+	timeline.add({
+		targets: '.el-2',
+		opacity: [0, 1],
+		translateX: [1500, 0],
+		scale: [5, 1],
+		delay: anime.stagger(100, { start: 100 }),
+		easing: 'easeInOutSine',
+		begin: function (anim) {
+			anim.animatables.forEach(function (animatable) {
+				animatable.target.style.transition = 'all 0.3s ease-out';
+			});
+		}
+	}).add({
+		targets: '.el-1',
+		opacity: [0, 1], duration: 1250,
+		delay: anime.stagger(50, { start: 50 }),
+		easing: 'easeInOutSine',
+		begin: function (anim) {
+			anim.animatables.forEach(function (animatable) {
+				animatable.target.style.transition = 'opacity 0.3s ease-out';
+			});
+		}
+	}).add({
+		targets: '.el-3',
+		opacity: [0, 1],
+		translateY: [-100, 0], duration: 750,
+		delay: anime.stagger(0, { start: 0 }),
+		easing: 'easeInOutSine',
+		begin: function (anim) {
+			anim.animatables.forEach(function (animatable) {
+				animatable.target.style.transition = 'opacity 0.3s ease-out';
+			});
+		}
+	}, 730);
+}
 //* ----------------------------------------------------------------------------
 export function timeLineHeaderItem() {
 	let timeline = anime.timeline({

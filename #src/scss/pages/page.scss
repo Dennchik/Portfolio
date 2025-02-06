@@ -189,9 +189,13 @@
 		height: 100%;
 	}
 
-	// .main-content__content
-	&__content {
-		// position: relative;
+	// .main-content__sections
+	&__sections {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
 	}
 
 	// .main-content__video

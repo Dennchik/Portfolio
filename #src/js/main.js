@@ -8,6 +8,7 @@ import returnToSavedPosition from './modules/return-position.js';
 import { timeLineHeaderItem } from './animations/anime-js.jsx';
 import modalOpen from './modules/modalOpen.js';
 import { buttonShow } from './animations/anime-js.jsx';
+import { timeLineTextItem } from './animations/anime-js.jsx';
 // import { animateTitles } from './animations/animations.jsx';
 // const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 // const offerContent = document.querySelector('.offer-container__content');
@@ -26,6 +27,26 @@ import { buttonShow } from './animations/anime-js.jsx';
 
 
 // }
+
+const textItem = document.querySelector('.performance__text');
+if (textItem) {
+	timeLineTextItem();
+}
+document.addEventListener('DOMContentLoaded', function () {
+	let dateContainer = document.querySelector('.performance__date');
+	if (!dateContainer) return;
+
+	let now = new Date();
+	let options = { month: 'short' }; // Сокращённое название месяца
+	let day = now.getDate();
+	let month = new Intl.DateTimeFormat('ru-RU', options).format(now);
+
+	// Убираем точку и делаем первую букву заглавной
+	month = month.replace('.', '').charAt(0).toUpperCase() + month.slice(1, -1);
+
+	dateContainer.innerHTML = `<div class="day">${day}</div> <div class="status"> <div class="month">${month}</div><p>доступен</p><p>для работы</p></div>`;
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 	returnToSavedPosition();
 	buttonShow();

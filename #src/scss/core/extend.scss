@@ -3,6 +3,7 @@
 
 .box-shadow {
 	box-shadow: 0 1px 10px #020101;
+	backdrop-filter: blur(22px);
 }
 
 .font-size-calc-h2 {
@@ -12,10 +13,10 @@
 }
 
 .top-box {
-	padding: 6rem 0 0;
+	padding: 6rem 0 10rem;
 	padding-top: calc(6rem + 64px) !important;
 
-	@include min-1440 {
+	@include min-960 {
 		padding: 10rem 0;
 		min-height: 100vh;
 	}
@@ -203,10 +204,17 @@
 .gradient-header {
 	background-image: linear-gradient(
 		-45deg,
-		$color,
-		$neon-electric 65%,
-		// $color-secondary 65%,
+		$black-color,
+		#49577b67 65%,
 		$black-color 75%
+	);
+}
+
+.gradient-border-bottom {
+	background-image: linear-gradient(
+		to left top,
+		rgb(29, 34, 46) 45%,
+		$black-color 71%
 	);
 }
 
@@ -251,6 +259,13 @@
 	border-style: none solid;
 }
 
+.text-shadow {
+	text-shadow:
+		0 0 15px #000,
+		0 0 1em #000,
+		0 0 0.2em blue;
+}
+
 .shadow-after {
 	z-index: -1;
 	transform: rotateX(15deg) translateZ(-10px);
@@ -263,15 +278,6 @@
 
 // background: linear-gradient(to right, #04d9ff 20%, #ffff 50%, #04d9ff 80%);
 //! ----------------------------------------------------------------------------
-.overflow-hidden {
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
-	scrollbar-width: none;
-
-	&::-webkit-scrollbar {
-		height: 0;
-	}
-}
 
 .border-present {
 	position: absolute;
@@ -389,12 +395,4 @@
 	&._is-open {
 		grid-template-rows: 1fr;
 	}
-}
-
-.gradient-border-bottom {
-	background-image: linear-gradient(
-		to left top,
-		rgba(129, 100, 255, 0.61) 45%,
-		rgb(2, 1, 1) 71%
-	);
 }

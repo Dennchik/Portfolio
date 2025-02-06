@@ -60,24 +60,22 @@
 		height: 8rem;
 		display: flex;
 		align-items: center;
+		gap: 10px;
 		justify-content: space-between;
 	}
 
 	// .header__column
 	&__column {
+		height: 100%;
+		font-family: $font-family-secondary;
+
 		&:nth-child(1) {
 			display: flex;
-			align-items: flex-end;
+			align-items: center;
 		}
 
 		&:nth-child(2) {
 			transform: translateY(7px);
-		}
-
-		@include screen-920 {
-			&:nth-child(2) {
-				display: none;
-			}
 		}
 	}
 
@@ -87,7 +85,7 @@
 		height: 53px;
 		opacity: 0.9;
 
-		@include max-690 {
+		@include screen-690 {
 			width: 40px;
 			height: 43px;
 		}
@@ -95,32 +93,28 @@
 
 	// .header__text
 	&__text {
-		margin-left: 15px;
+		margin-left: 5px;
 		text-transform: uppercase;
 		white-space: nowrap;
-		font: {
-			size: 43px;
-			weight: 400;
-			family: $font-family-exclude;
-		}
 		text-shadow: 0 0 3px #000;
-		line-height: 100%;
 		display: flex;
 		align-items: flex-end;
-		transform: translateY(3px);
 		transition: color 0.4s ease-in-out;
 
 		span {
 			opacity: 0.7;
+			font: {
+				size: 2.4rem;
+				weight: 400;
+				family: $font-family-secondary;
+			}
+			@include screen-690 {
+				font-size: 2rem;
+			}
 		}
 
 		&:hover {
 			color: $neon-electric;
-		}
-
-		@include max-690 {
-			font-size: 28px;
-			transform: translateY(4px);
 		}
 	}
 
@@ -129,10 +123,13 @@
 		user-select: none;
 		display: flex;
 		transition: all 0.4s ease 0s;
-		margin: 0 1.5rem;
+		margin-right: 1.5rem;
 		text-transform: uppercase;
 		align-items: flex-start;
 
+		@include screen-768 {
+			display: none;
+		}
 		.icon-home {
 			&::before {
 				font-size: 22px;
@@ -176,8 +173,9 @@
 
 	// .header__link-key
 	&__link-key {
-		@extend .link_underline;
-
+		font-family: $font-family-secondary;
+		font-weight: 300;
+		white-space: nowrap;
 		span {
 			text-shadow:
 				0 0 15px #000,
@@ -185,6 +183,7 @@
 				0 0 0.2em blue;
 		}
 
+		@extend .link_underline;
 		&:not(:first-child) {
 			opacity: 1;
 		}
@@ -212,11 +211,13 @@
 .el-community {
 	display: flex;
 	align-items: center;
+
 	// .el-community__phone
 	&__phone {
 		display: flex;
 		align-items: center;
 		transition: all 0.4s ease-in-out;
+
 		&:hover {
 			.icon-contacts {
 				color: $neon-electric;
@@ -237,7 +238,7 @@
 			margin-right: 0;
 		}
 
-		@include max-690 {
+		@include screen-690 {
 			font-size: 32px;
 		}
 	}
@@ -245,8 +246,8 @@
 	// .el-community__content
 	&__content {
 		color: #d4d4d4;
-		text-shadow: 1px 0 2px #000;
 		line-height: 100%;
+		@extend .text-shadow;
 
 		@include screen-425 {
 			display: none;
@@ -256,6 +257,11 @@
 	// .el-community__title
 	&__title {
 		text-transform: uppercase;
+		white-space: nowrap;
+
+		@include screen-490 {
+			display: none;
+		}
 	}
 }
 
