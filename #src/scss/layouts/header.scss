@@ -62,6 +62,31 @@
 		align-items: center;
 		gap: 10px;
 		justify-content: space-between;
+
+		.el-logo {
+			//* ---------------------------------------------------------------------
+			transform-style: preserve-3d;
+			backface-visibility: hidden;
+			perspective: 100px;
+			//* ----------------------------------------------------------------------
+
+			&:hover {
+				.header__logo-wrpper {
+					transform: translate3d(0, 0, 0);
+					transform: rotateX(0) translateZ(0);
+					opacity: 0.3 !important;
+					transform-origin: 50% -100%;
+					transform: rotateX(-16deg) translateZ(-22px);
+				}
+			}
+		}
+	}
+
+	// .header__logo-wrpper
+	&__logo-wrpper {
+		transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+		display: flex;
+		align-items: center;
 	}
 
 	// .header__column
@@ -96,25 +121,32 @@
 		margin-left: 5px;
 		text-transform: uppercase;
 		white-space: nowrap;
-		text-shadow: 0 0 3px #000;
 		display: flex;
 		align-items: flex-end;
-		transition: color 0.4s ease-in-out;
+
+		// transform-style: preserve-3d;
+		// backface-visibility: hidden;
+		// perspective: 100px;
 
 		span {
-			opacity: 0.7;
 			font: {
 				size: 2.4rem;
 				weight: 400;
 				family: $font-family-secondary;
 			}
+			z-index: -1;
+			// transform: translate3d(0, 0, 0);
+			// transform: rotateX(0) translateZ(0);
+			// transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+			// &:hover {
+			// 	transform-origin: 50% -100%;
+			// 	transform: rotateX(-16deg) translateZ(-22px);
+			// }
+			@extend .text-shadow;
+
 			@include screen-690 {
 				font-size: 2rem;
 			}
-		}
-
-		&:hover {
-			color: $neon-electric;
 		}
 	}
 
@@ -130,32 +162,29 @@
 		@include screen-768 {
 			display: none;
 		}
+
 		.icon-home {
 			&::before {
 				font-size: 22px;
-				color: #919191;
+				color: #b3b3d6;
 			}
 		}
 	}
 
 	// .header__item
 	&__item {
-		cursor: pointer;
 		position: relative;
-		text-shadow: 1px 1px 2px #000;
 
 		&:not(:last-child) {
 			margin-right: 2rem;
 		}
 
 		&:hover {
-			color: $neon-electric;
-			text-shadow: 2px 2px 3px #000;
-
 			.icon-home {
 				&::before {
 					transition: all 0.4s ease 0s;
-					color: $neon-electric;
+					color: $luminescent-orange;
+					@extend .text-shadow-pink;
 				}
 			}
 		}
@@ -163,47 +192,27 @@
 		.icon-home {
 			&::before {
 				transition: all 0.4s ease 0s;
-				text-shadow:
-					0 0 15px #000,
-					0 0 1em #000,
-					0 0 0.2em blue;
+				@extend .text-shadow;
 			}
 		}
 	}
 
-	// .header__link-key
 	&__link-key {
+		position: relative;
+		outline: none;
+		line-height: 1;
+		transition: color 0s 0.5s;
+		display: inline-block;
 		font-family: $font-family-secondary;
 		font-weight: 300;
 		white-space: nowrap;
-		span {
-			text-shadow:
-				0 0 15px #000,
-				0 0 1em #000,
-				0 0 0.2em blue;
-		}
 
-		@extend .link_underline;
+		@extend .text-shadow;
+		@extend .link_split;
+		color: $luminescent-orange;
+
 		&:not(:first-child) {
 			opacity: 1;
-		}
-
-		&:hover {
-			color: $neon-electric;
-
-			a {
-				opacity: 1;
-			}
-		}
-
-		&._active {
-			color: $neon-electric;
-
-			.icon-home {
-				&::before {
-					color: $neon-electric;
-				}
-			}
 		}
 	}
 }
@@ -220,16 +229,16 @@
 
 		&:hover {
 			.icon-contacts {
-				color: $neon-electric;
+				color: $luminescent-orange;
+				@extend .text-shadow-pink;
 			}
-			color: $neon-electric;
 		}
 	}
 
 	.icon-contacts {
 		pointer-events: none;
 		font-size: 4.4rem;
-		color: $electric-lime;
+		color: $neon-electric;
 		margin-right: 1rem;
 		text-shadow: 1px 1px 3px #000;
 		transition: all 0.4s ease-in-out;

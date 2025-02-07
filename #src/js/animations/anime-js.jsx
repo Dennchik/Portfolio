@@ -74,7 +74,7 @@ export function timeLineTextItem() {
 	});
 	timeline.add({
 		targets: '.el-2',
-		opacity: [0, 1],
+		opacity: [0, 0.7],
 		translateX: [1500, 0],
 		scale: [5, 1],
 		delay: anime.stagger(100, { start: 100 }),

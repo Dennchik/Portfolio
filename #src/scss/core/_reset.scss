@@ -21,9 +21,11 @@ html {
 }
 
 body {
+	user-select: none;
 	// overscroll-behavior: none;
 	font: 1.6rem/1.6 $font-default;
 	background: $black-color;
+	@extend .text-shadow;
 
 	&.no-scroll {
 		overflow: hidden;
@@ -65,6 +67,12 @@ a {
 }
 
 a:hover {
+	text-decoration: none;
+	vertical-align: baseline;
+	background-color: transparent;
+}
+
+a:focus {
 	text-decoration: none;
 }
 

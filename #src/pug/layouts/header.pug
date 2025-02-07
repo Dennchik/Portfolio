@@ -2,25 +2,26 @@
 	._container
 		._content
 			a(href="@@webRoot/index.html" alt="image")._column.el-logo
-				._logo
-					img(src="@@webRoot/img/header/logo.png")
-				._text
-					span Александр Васильев
+				._logo-wrpper
+					._logo
+						img(src="@@webRoot/img/header/logo.png")
+					._text
+						span Александр Васильев
 			._column.el-community
-				._menu
-					//- ._item
-					//- 	a(href="@@webRoot/index.html")._item._item--home
-						i.icon-home
-					._item
-						a(href="@@webRoot/services.html")._link-key
-							span Проекты 
-					._item
-						a(href="@@webRoot/about.html")._link-key
-							span Обо мне 
-					._item
-						a(href="#contacts")._link-key.anchor-link 
-							span Контакты
+				ul._menu
+					li._item
+						a(href="@@webRoot/index.html")
+							i.icon-home
+					li._item
+						a(href="@@webRoot/services.html" data-letters="Проекты")._link-key
+							| Проекты 
+					li._item
+						a(href="@@webRoot/about.html" data-letters="Обо мне")._link-key
+							| Обо мне 
+					li._item
+						a(href="#contacts" data-letters="Контакты")._link-key.anchor-link 
+							| Контакты
 				a.el-community__phone(href="mailto:awdes@yandex.ru")
-					i.icon-contacts
+					+iconfont('contacts', '_icon')
 					.el-community__content 
 						span.el-community__title Скажи привет! 

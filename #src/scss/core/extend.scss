@@ -13,11 +13,11 @@
 }
 
 .top-box {
-	padding: 6rem 0 10rem;
-	padding-top: calc(6rem + 64px) !important;
+	padding: 6rem 0 8rem;
 
+	padding-top: calc(6rem + 60px);
 	@include min-960 {
-		padding: 10rem 0;
+		padding: 8rem 0;
 		min-height: 100vh;
 	}
 }
@@ -205,7 +205,7 @@
 	background-image: linear-gradient(
 		-45deg,
 		$black-color,
-		#49577b67 65%,
+		$blue-color-transparent 65%,
 		$black-color 75%
 	);
 }
@@ -257,13 +257,6 @@
 	padding: 0 1.5rem;
 	border: 1px var(--border-color);
 	border-style: none solid;
-}
-
-.text-shadow {
-	text-shadow:
-		0 0 15px #000,
-		0 0 1em #000,
-		0 0 0.2em blue;
 }
 
 .shadow-after {
@@ -332,6 +325,63 @@
 		1px 100%;
 	inset: 0.7rem;
 }
+.text-shadow-pink {
+	text-shadow:
+		0 0 15px #000,
+		0 0 1em #000,
+		0 0 0.1em $neon-pink;
+}
+
+.text-shadow {
+	text-shadow:
+		0 0 15px #000,
+		0 0 1em #000,
+		0 0 0.2em blue;
+}
+
+.link_split {
+	&:hover {
+		color: transparent;
+		transition: none;
+
+		&::before {
+			transform: translate3d(0px, -3px, 0);
+		}
+
+		&::after {
+			transform: translate3d(0px, 3px, 0);
+		}
+
+		&::before,
+		&::after {
+			@extend .text-shadow-pink;
+			color: $luminescent-orange;
+			transition:
+				color 0.5s,
+				transform 0.5s;
+		}
+	}
+
+	&::before,
+	&::after {
+		content: attr(data-letters);
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: #fff;
+		transition:
+			color 0.5s,
+			transform 0.5s;
+	}
+
+	&::before {
+		clip-path: polygon(0 0, 100% 0%, 100% 30%, 0 70%);
+	}
+
+	&::after {
+		clip-path: polygon(0 50%, 100% 1%, 100% 100%, 0 100%);
+	}
+}
 
 .link_underline {
 	&::before,
@@ -342,7 +392,7 @@
 		content: '';
 		transition: width 0.4s ease-in-out;
 		opacity: 0.6;
-		background-color: $neon-blue;
+		background-color: $neon-electric;
 	}
 
 	&::before {

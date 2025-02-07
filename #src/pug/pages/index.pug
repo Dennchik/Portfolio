@@ -8,7 +8,7 @@ prepend script
 	script(defer="defer" src="@@webRoot/js/vendors/swiper-bundle.min.js")
 	//- script(defer="defer" src="@@webRoot/js/vendors/react-vendors.min.js")
 block title
-	- var text='Студия звукозаписи "Gusli" Media-Group'
+	- var text='Portfolio "Александр Всаильев"'
 
 block header 
 	header.page__header
@@ -16,6 +16,7 @@ block header
 block main-content
 	section.main-content__sections
 		include ../section/section-performance
-
-	include ../chunks/Offer
-	include ../chunks/Offer
+	section.main-content__sections
+		include ../section/about-content
+	section.main-content__sections
+		include ../section/section-project

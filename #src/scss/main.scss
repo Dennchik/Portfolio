@@ -28,6 +28,7 @@
 @import url('https://fonts.googleapis.com/css?family=Manrope:regular,500,600,700&display=swap&subset=cyrillic-ext');
 @import url('https://fonts.googleapis.com/css?family=Shantell+Sans:300,regular,500,600,700,800&display=swap&subset=cyrillic-ext');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:regular,700&display=swap&subset=cyrillic-ext');
 // #region
 // todo ---------------------------- Style -------------------------------------
 .wrapper {
@@ -42,7 +43,10 @@
 	max-width: $maxWidth;
 	box-sizing: content-box;
 	margin: 0 auto;
-	padding: 0 2rem;
+	padding: 0 4rem;
+	@include screen-1140 {
+		padding: 0 2rem;
+	}
 }
 
 [class*='icon-'] {

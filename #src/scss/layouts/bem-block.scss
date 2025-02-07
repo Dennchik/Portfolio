@@ -148,14 +148,12 @@
 	}
 }
 
-.t_01901 {
+.t-01901 {
 	@include minmax-490-1920 {
-		font-size: calc(
-			16px + (28 - 16) * ((100vw - 490px) / (1920 - 490))
-		) !important;
+		font-size: calc(15px + (28 - 15) * ((100vw - 490px) / (1920 - 490)));
 	}
 	@include screen-490 {
-		font-size: 16px !important;
+		font-size: 15px;
 	}
 }
 

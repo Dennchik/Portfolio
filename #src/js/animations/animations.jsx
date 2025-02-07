@@ -57,6 +57,22 @@ export function initSectionTriggerMove(trigger, targets) {
 		// markers: true
 	});
 }
+//* ----------------------------------------------------------------------------
+
+export function tlVertical() {
+	gsap.to('.el-4', {
+		opacity: 0, // Исчезает полностью
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '.performance',
+			start: 'top top', // Начало анимации, когда `.performance` на 80% вниз от верхней границы экрана
+			end: 'bottom top', // Конец анимации, когда `.performance` полностью ушел вверх
+			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	});
+}
+
 
 //* ----------------------------------------------------------------------------
 export function tlFooterHorizontal() {
@@ -184,8 +200,7 @@ export function tlServices1() {
 
 //* ----------------------------------------------------------------------------
 export function tlServices2() {
-	const endValue =
-		window.innerWidth >= 490 ? 'bottom bottom+=70' : 'bottom bottom+=150';
+	const endValue = window.innerWidth >= 490 ? 'bottom bottom+=70' : 'bottom bottom+=150';
 	const tlServices2 = gsap.timeline({
 		scrollTrigger: {
 			trigger: '.offer-container__content',
@@ -193,7 +208,8 @@ export function tlServices2() {
 			endTrigger: '.offer-container__content', // end: 'bottom bottom+=70',
 			end: endValue,
 			scrub: 2,
-			toggleActions: 'play none none reverse', // markers: true,
+			toggleActions: 'play none none reverse',
+			markers: true,
 		},
 	});
 	tlServices2.from('.sr-3', {
@@ -202,18 +218,15 @@ export function tlServices2() {
 		opacity: 0,
 		ease: 'sine.in',
 	});
-	tlServices2.from(
-		'.sr-4',
-		{
-			x: 150,
-			duration: 1,
-			opacity: 0,
-			ease: 'sine.in',
-		},
+	tlServices2.from('.sr-4', {
+		x: 150,
+		duration: 1,
+		opacity: 0,
+		ease: 'sine.in',
+	},
 		'-=1',
 	);
 }
-
 //* ------------ Плавное появление заголовков (Анимация Titles) ----------------
 export function animateTitles(element, trigger, endTrigger, start, end) {
 	const timeline = gsap.timeline({

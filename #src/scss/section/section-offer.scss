@@ -161,6 +161,7 @@
 		width: fit-content;
 		align-self: center;
 		box-shadow: 0 0 6px #000;
+		z-index: 9;
 
 		&:before {
 			border-radius: 7px;

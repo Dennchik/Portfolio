@@ -5,10 +5,8 @@ import loaded from './assets/preloader.js';
 loaded('.preloader');
 //* ----------------------------------------------------------------------------
 import returnToSavedPosition from './modules/return-position.js';
-import { timeLineHeaderItem } from './animations/anime-js.jsx';
 import modalOpen from './modules/modalOpen.js';
-import { buttonShow } from './animations/anime-js.jsx';
-import { timeLineTextItem } from './animations/anime-js.jsx';
+import { timeLineHeaderItem, buttonShow, timeLineTextItem } from './animations/anime-js.jsx';
 // import { animateTitles } from './animations/animations.jsx';
 // const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 // const offerContent = document.querySelector('.offer-container__content');
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Убираем точку и делаем первую букву заглавной
 	month = month.replace('.', '').charAt(0).toUpperCase() + month.slice(1, -1);
 
-	dateContainer.innerHTML = `<div class="day">${day}</div> <div class="status"> <div class="month">${month}</div><p>доступен</p><p>для работы</p></div>`;
+	dateContainer.innerHTML = `<div class="day">${day}</div> <div class="data-wrapp"> <div class="month">${month}</div><div class="status"><p>доступен </br> для&nbsp;работы</p></div></div>`;
 });
 
 document.addEventListener('DOMContentLoaded', () => {
