@@ -21,7 +21,7 @@ html {
 }
 
 body {
-	user-select: none;
+	// user-select: none;
 	// overscroll-behavior: none;
 	font: 1.6rem/1.6 $font-default;
 	background: $black-color;
@@ -79,6 +79,11 @@ a:focus {
 a:visited {
 	vertical-align: middle;
 	text-emphasis-style: none;
+}
+
+h2,
+h3 {
+	font-family: $font-family-secondary;
 }
 
 input,

@@ -86,6 +86,7 @@ export function timeLineTextItem() {
 		}
 	}).add({
 		targets: '.el-1',
+		translateY: [200, 0],
 		opacity: [0, 1], duration: 1250,
 		delay: anime.stagger(50, { start: 50 }),
 		easing: 'easeInOutSine',
@@ -249,12 +250,4 @@ export function animationSvgText(target, reverse) {
 }
 
 //* ----------------------------------------------------------------------------
-/*
- export function removeElement() {
- const animatedElements = document.querySelectorAll(
- '.equalizer-content__square');
- animatedElements.forEach(element => {
- // Удаляем анимацию для каждого элемента
- anime.remove(element);
- });
- }*/
+

@@ -1,3 +1,5 @@
+@use '../core/all' as *;
+
 .about-content {
 	// .about-content__body
 
@@ -17,6 +19,7 @@
 		&:nth-child(2) {
 			// justify-content: center;
 			.about-content__column {
+				flex: 0 1 50%;
 				&:nth-child(1) {
 					max-width: 690px;
 				}
@@ -32,7 +35,7 @@
 	&__title {
 		margin-bottom: 6rem;
 		h2 {
-			font: 54px 'Amatic SC';
+			font: 54px $font-family-secondary;
 			font-weight: 900;
 			line-height: 1;
 			color: gray;

@@ -14,6 +14,7 @@ ScrollTrigger.config({ ignoreMobileResize: true });
 export const smoother = ScrollSmoother.create({
 	wrapper: '#wrapper',
 	content: '#content',
+	speed: 1.5,
 	smooth: 1.5,
 	effects: true,
 	smoothTouch: 0.1,
@@ -58,7 +59,30 @@ export function initSectionTriggerMove(trigger, targets) {
 	});
 }
 //* ----------------------------------------------------------------------------
-
+export function tlRotate() {
+	gsap.to('._rotate-el-01', {
+		rotate: -720, // постоянное вращение
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '._rotate-el-01',
+			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней границы экрана
+			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы экрана
+			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	}), gsap.to('._rotate-el-02', {
+		rotate: -720, // постоянное вращение
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '._rotate-el-02',
+			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней границы экрана
+			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы экрана
+			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	});
+}
+//* ----------------------------------------------------------------------------
 export function tlVertical() {
 	gsap.to('.el-4', {
 		opacity: 0, // Исчезает полностью
@@ -72,8 +96,6 @@ export function tlVertical() {
 		}
 	});
 }
-
-
 //* ----------------------------------------------------------------------------
 export function tlFooterHorizontal() {
 	const tlHorizontal = gsap.timeline({
@@ -257,40 +279,63 @@ export function animateTitles(element, trigger, endTrigger, start, end) {
 		'< ',
 	); // "<" синхронизирует начало обеих анимаций
 }
-
 //* ----------------------- Создание ScrollSmoother ----------------------------
-// export function SplitTextFunction() {
+// export function cassieEvans() {
 // 	const smoother = ScrollSmoother.get();
-// 	// Находим все элементы с классом `.split-stagger`
-// 	const elements = document.querySelectorAll('.split-stagger');
-//
-// 	elements.forEach((element, index) => {
-// 		// Разбиваем текст на слова и символы для каждого элемента
-// 		let mySplitText = new SplitText(element, { type: 'words,chars' });
-// 		let chars = mySplitText.chars;
-// 		if (index % 2 === 0) {
-// 			// Нечётный элемент: анимация слева направо
-// 			chars.forEach((char, i) => {
-// 				smoother.effects(char, { speed: 1, lag: (i + 1) * 0.01 });
-// 			});
-// 		} else {
-//
-// 			chars.forEach((char, i) => {
-// 				smoother.effects(char, { speed: 1, lag: (chars.length - i) * 0.01 });
-// 			});
+// 	smoother.effects('.parallax__image', {
+// 		speed: () => gsap.utils.random(0.55, 0.85, 0.05)
+// 	});
+
+// 	gsap.to('.anim-swipe', {
+// 		yPercent: 300,
+// 		delay: 0.2,
+// 		duration: 3,
+// 		stagger: {
+// 			from: 'random',
+// 			each: 0.1
+// 		},
+// 		ease: 'sine.out'
+// 	});
+
+// 	gsap.to('.parallax__image img', {
+// 		scale: 1.5,
+// 		xPercent: 20,
+// 		scrollTrigger: {
+// 			trigger: '.parallax',
+// 			start: 'top top',
+// 			end: '+=3000px',
+// 			scrub: true
 // 		}
-//
 // 	});
 // }
-//* -------------------- Уничтожение ScrollSmoother ----------------------------
-// export function destroySmoother(initSmoother) {
-// 	if (initSmoother) {
-// 		/* Уничтожаем экземпляр ScrollSmoother при размонтировании */
-// 		initSmoother.kill();
-// 	}
-// }
 
+export function cassieEvans() {
+	smoother.effects('.hero__image-cont', {
+		speed: () => gsap.utils.random(0.55, 0.85, 0.05)
+	});
 
+	gsap.to('.anim-swipe', {
+		yPercent: 300,
+		delay: 0.2,
+		duration: 3,
+		stagger: {
+			from: 'random',
+			each: 0.1
+		},
+		ease: 'sine.out'
+	});
+
+	gsap.to('.hero__image-cont img', {
+		scale: 1.5,
+		xPercent: 20,
+		scrollTrigger: {
+			trigger: '.hero',
+			start: 'top top',
+			end: '+=3000px',
+			scrub: true
+		}
+	});
+}
 
 
 

@@ -325,6 +325,7 @@
 		1px 100%;
 	inset: 0.7rem;
 }
+
 .text-shadow-pink {
 	text-shadow:
 		0 0 15px #000,
@@ -444,5 +445,22 @@
 
 	&._is-open {
 		grid-template-rows: 1fr;
+	}
+}
+//! ----------------------------------------------------------------------------
+.transform-perspective {
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	perspective: 100px;
+
+	.transform-box {
+		transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+		&:hover {
+			transform: translate3d(0, 0, 0);
+			transform: rotateX(0) translateZ(0);
+			opacity: 0.3 !important;
+			transform-origin: 50% -100%;
+			transform: rotateX(-16deg) translateZ(-22px);
+		}
 	}
 }
