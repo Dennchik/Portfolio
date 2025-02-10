@@ -30,6 +30,7 @@ export default (function () {
 
 			// HTML5 Canvas
 			Waves.canvas = document.createElement('canvas');
+			Waves.canvas.classList.add('vertical-reverse');
 			Waves.ctx = Waves.canvas.getContext('2d');
 			Waves.holder.appendChild(Waves.canvas);
 
@@ -161,10 +162,9 @@ export default (function () {
 				Waves.hueFw = true;
 			}
 
-			var a = Math.floor(4 * Math.sin(0.3 * Waves.hue) + 109);
-			var b = Math.floor(127 * Math.sin(0.3 * Waves.hue + 2) + 140);
-			var c = Math.floor(127 * Math.sin(0.3 * Waves.hue + 4) + 140);
-
+			var a = Math.floor(4 * Math.sin(0.3 * Waves.hue) + 70);
+			var b = Math.floor(19 * Math.sin(0.3 * Waves.hue + 2) + 90);
+			var c = Math.floor(19 * Math.sin(0.3 * Waves.hue + 4) + 90);
 			Waves.color = 'rgba(' + a + ',' + b + ',' + c + ', 0.1)';
 		}
 	}
@@ -328,7 +328,7 @@ export default (function () {
 
 	// Глобальная вспомогательная функция для преобразования градусов в радианы
 	function dtr(deg) {
-		return deg * pi / 360;
+		return deg * pi / 180;
 	}
 
 	// Глобальная вспомогательная функция для генерации случайного числа

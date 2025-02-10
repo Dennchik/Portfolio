@@ -3,8 +3,11 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { Observer } from 'gsap/Observer';
+
+import { CustomEase } from 'gsap/CustomEase';
+import { CustomBounce } from 'gsap/CustomBounce';
 //* ------------- Регистрация - ScrollTrigger, ScrollSmoother ------------------
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, Observer);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, Observer, CustomEase, CustomBounce);
 
 //* --------------------- Конфигурация - ScrollTrigger -------------------------
 ScrollTrigger.normalizeScroll(false);
@@ -97,224 +100,55 @@ export function tlVertical() {
 	});
 }
 //* ----------------------------------------------------------------------------
-export function tlFooterHorizontal() {
-	const tlHorizontal = gsap.timeline({
+export function tlVerticalReverse() {
+	gsap.to('.vertical-reverse', {
+		opacity: 0.3, // Появление элемента
+		ease: 'none', // Равномерное изменение без ускорений
 		scrollTrigger: {
-			trigger: '.footer',
-			start: 'top bottom',
-			endTrigger: '.footer',
-			end: 'bottom bottom',
-			scrub: 2,
-			toggleActions: 'play none none reverse',
-			// markers: true,
-		},
+			trigger: '.performance',
+			start: 'top top', // Начало анимации, когда `.performance` на 80% вниз от верхней границы экрана
+			end: 'bottom top', // Конец анимации, когда `.performance` полностью ушел вверх
+			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
 	});
-
-	tlHorizontal.from(
-		'.el-4',
-		{
-			y: 150,
-			duration: 1,
-			opacity: 0,
-			ease: 'sine.inOut',
-		},
-		'-=0.5',
-	);
-
-	tlHorizontal.from(
-		'.el-5',
-		{
-			y: 350,
-			duration: 1,
-			opacity: 0,
-			ease: 'sine.inOut',
-		},
-		'-=1',
-	);
-
-	tlHorizontal.from(
-		'.contacts__items',
-		{
-			x: 450,
-			duration: 1,
-			opacity: 0,
-			ease: 'sine.inOut',
-		},
-		'-=1',
-	);
-}
-
-//* ----------------------------------------------------------------------------
-export function tlFooterParallel() {
-	const tlParallel = gsap.timeline({
-		scrollTrigger: {
-			trigger: '.footer',
-			start: 'top bottom',
-			endTrigger: '.footer',
-			end: 'bottom bottom+=600',
-			scrub: 2,
-			toggleActions: 'play none none reverse',
-			// markers: true,
-		},
-	});
-	tlParallel.from('.footer .el-1', {
-		x: -250,
-		duration: 1,
-		opacity: 0,
-		ease: 'sine.inOut',
-	});
-
-	tlParallel.from(
-		'.el-2',
-		{
-			// x: window.innerWidth <= 680 ? 350 : 0,
-			y: window.innerWidth > 680 ? 150 : 0,
-			duration: 1,
-			opacity: 0,
-			ease: 'sine.inOut',
-		},
-		'-=1',
-	);
-
-	tlParallel.from(
-		'.el-3',
-		{
-			x: window.innerWidth <= 680 ? -350 : window.innerWidth > 680 ? 350 : 0,
-			duration: 1,
-			opacity: 0,
-			ease: 'sine.inOut',
-		},
-		'-=1',
-	);
-}
-
-//* ----------------------------------------------------------------------------
-export function tlServices1() {
-	const endValue =
-		window.innerWidth >= 490 ? 'bottom bottom+=70' : 'bottom bottom+=150';
-	const tlServices1 = gsap.timeline({
-		scrollTrigger: {
-			trigger: '.offer-container__content',
-			start: 'top bottom-=50',
-			endTrigger: '.offer-container__content', // end: 'bottom bottom+=70',
-			end: endValue,
-			scrub: 2,
-			toggleActions: 'play none none reverse', // markers: true,
-		},
-	});
-	tlServices1.from('.sr-1', {
-		x: -150,
-		duration: 1,
-		opacity: 0,
-		ease: 'sine.inOut',
-	});
-	tlServices1.from(
-		'.sr-2',
-		{
-			x: 150,
-			duration: 1,
-			opacity: 0,
-			ease: 'sine.inOut',
-		},
-		'-=1',
-	);
-}
-
-//* ----------------------------------------------------------------------------
-export function tlServices2() {
-	const endValue = window.innerWidth >= 490 ? 'bottom bottom+=70' : 'bottom bottom+=150';
-	const tlServices2 = gsap.timeline({
-		scrollTrigger: {
-			trigger: '.offer-container__content',
-			start: 'top bottom-=300',
-			endTrigger: '.offer-container__content', // end: 'bottom bottom+=70',
-			end: endValue,
-			scrub: 2,
-			toggleActions: 'play none none reverse',
-			markers: true,
-		},
-	});
-	tlServices2.from('.sr-3', {
-		x: -150,
-		duration: 1,
-		opacity: 0,
-		ease: 'sine.in',
-	});
-	tlServices2.from('.sr-4', {
-		x: 150,
-		duration: 1,
-		opacity: 0,
-		ease: 'sine.in',
-	},
-		'-=1',
-	);
 }
 //* ------------ Плавное появление заголовков (Анимация Titles) ----------------
 export function animateTitles(element, trigger, endTrigger, start, end) {
 	const timeline = gsap.timeline({
 		scrollTrigger: {
 			trigger: trigger,
-			start: `top-=100 bottom-${start}`,
+			start: `top bottom-${start}`,
 			endTrigger: endTrigger,
-			end: `top-=100 bottom-${end}`,
-			toggleActions: 'play none none reverse', // markers: true,
+			end: `top bottom-${end}`,
+			toggleActions: 'play none none reverse',
+			// markers: true,
 		},
 	});
 
 	// Анимация для смещения по Y
 	timeline.from(element, {
-		y: 100,
+		y: 300,
 		duration: 0.8, // Продолжительность смещения
 		ease: 'power1.out', // Мягкая анимация
 	});
 
 	// Анимация для прозрачности с большей продолжительностью
-	timeline.from(
-		element,
-		{
-			opacity: 0,
-			duration: 1.2, // Увеличиваем продолжительность для opacity
-			ease: 'power1.out', // Мягкая анимация
-		},
-		'< ',
+	timeline.from(element, {
+		opacity: 0,
+		duration: 1.2, // Увеличиваем продолжительность для opacity
+		ease: 'power1.out', // Мягкая анимация
+	},
+		'<',
 	); // "<" синхронизирует начало обеих анимаций
 }
-//* ----------------------- Создание ScrollSmoother ----------------------------
-// export function cassieEvans() {
-// 	const smoother = ScrollSmoother.get();
-// 	smoother.effects('.parallax__image', {
-// 		speed: () => gsap.utils.random(0.55, 0.85, 0.05)
-// 	});
-
-// 	gsap.to('.anim-swipe', {
-// 		yPercent: 300,
-// 		delay: 0.2,
-// 		duration: 3,
-// 		stagger: {
-// 			from: 'random',
-// 			each: 0.1
-// 		},
-// 		ease: 'sine.out'
-// 	});
-
-// 	gsap.to('.parallax__image img', {
-// 		scale: 1.5,
-// 		xPercent: 20,
-// 		scrollTrigger: {
-// 			trigger: '.parallax',
-// 			start: 'top top',
-// 			end: '+=3000px',
-// 			scrub: true
-// 		}
-// 	});
-// }
-
+//* ------------------------- Анимация: Parallax -------------------------------
 export function cassieEvans() {
-	smoother.effects('.hero__image-cont', {
+	smoother.effects('.parallax__image-cont', {
 		speed: () => gsap.utils.random(0.55, 0.85, 0.05)
 	});
 
-	gsap.to('.anim-swipe', {
+	gsap.to('.parallax__anime-swipe', {
 		yPercent: 300,
 		delay: 0.2,
 		duration: 3,
@@ -325,18 +159,119 @@ export function cassieEvans() {
 		ease: 'sine.out'
 	});
 
-	gsap.to('.hero__image-cont img', {
+	gsap.to('.parallax__image-cont img', {
 		scale: 1.5,
 		xPercent: 20,
 		scrollTrigger: {
-			trigger: '.hero',
+			trigger: '.parallax',
 			start: 'top top',
 			end: '+=3000px',
 			scrub: true
 		}
 	});
 }
+//* ---------------------- Анимация: lag - колонок -----------------------------
+export function skewSetter() {
+	// Создаем быстрый сеттер для свойства skewY.
+	const setSkew = gsap.quickTo('.grid-box__item', 'skewY');
+	// Ограничиваем значение наклона от -20 до 20 градусов.
+	const clampSkew = gsap.utils.clamp(-5, 5);
+	// Получаем экземпляр ScrollSmoother.
+	const smootherInstance = ScrollSmoother.get();
+
+	// Используем gsap.ticker для обновления на каждом кадре.
+	gsap.ticker.add(() => {
+		// Получаем текущую скорость прокрутки и вычисляем наклон.
+		const velocity = smootherInstance.getVelocity();
+		setSkew(clampSkew(velocity / -50));
+	});
+
+	if (window.innerWidth > 490) {
+		smoother.effects('.lag-1', { lag: 2, speed: 1 });
+		smoother.effects('.lag-2', { lag: 1.5, speed: 1.2 });
+		smoother.effects('.col-1', { lag: 1.5, speed: 0.8 });
+		smoother.effects('.col-2', { lag: 1.5, speed: 1 });
+	}
+}
+//* ------------------- Анимация: Появление картинок ---------------------------
+export function animateImage(element, trigger, endTrigger, start, end) {
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: trigger,
+			start: `top bottom-${start}`,
+			endTrigger: endTrigger,
+			end: `top bottom-${end}`,
+			toggleActions: 'play none none reverse',
+			// markers: true, 
+		},
+	});
+
+	// Анимация для смещения по Y
+	timeline.from(element, {
+		y: 300,
+		duration: 0.7, // Продолжительность смещения
+		ease: 'slow(0.1,2,true)',
+		// ease: 'expoScale(10,2.5,none)', 
+	});
+}
 
 
+// export function myBounce() {
+// 	//Create a custom bounce ease:
+// 	CustomBounce.create('myBounce', {
+// 		strength: 0.6,
+// 		squash: 3,
+// 		squashID: 'myBounce-squash',
+// 	});
+// 	//do the bounce by affecting the "y" property.
+// 	gsap.from('.class-bonse', {
+// 		duration: 2, y: 200, ease: 'myBounce'
+// 	});
 
+// 	//and do the squash/stretch at the same time:
+// 	gsap.to('.class', {
+// 		duration: 2,
+// 		scaleX: 1.4,
+// 		scaleY: 0.6,
+// 		ease: 'myBounce-squash',
+// 		transformOrigin: 'center bottom',
+// 	}); 
+// }
+export function myBounce(element, trigger, endTrigger, start, end) {
+
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: trigger,
+			start: `top bottom-${start}`,
+			endTrigger: endTrigger,
+			end: `top bottom-${end}`,
+			toggleActions: 'play none none reverse',
+			// markers: true, 
+		},
+	});
+	timeline.from(element, {
+		// y: 300,
+		duration: 1.2, // Продолжительность смещения
+		scaleX: 0.7,
+		scaleY: 0.7,
+		opacity: 0,
+
+		transformOrigin: 'center bottom',
+
+		ease: CustomBounce.create('myBounce', {
+			endAtStart: false,
+			strength: 0.1,
+			squash: 1,
+			squashID: 'myBounce-squash'
+		}),
+		// ease: 'expoScale(10,2.5,none)', 
+	});
+	//do the bounce by affecting the "y" property.
+	// gsap.from('.class-bonse', {
+	// 	duration: 2, y: 200, ease: 'myBounce'
+	// });
+
+	//and do the squash/stretch at the same time:
+
+}
 

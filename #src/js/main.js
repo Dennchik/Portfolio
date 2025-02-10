@@ -5,32 +5,24 @@ import loaded from './assets/preloader.js';
 loaded('.preloader');
 //* ----------------------------------------------------------------------------
 import returnToSavedPosition from './modules/return-position.js';
-import modalOpen from './modules/modalOpen.js';
-import { timeLineHeaderItem, buttonShow, timeLineTextItem } from './animations/anime-js.jsx';
-// import { animateTitles } from './animations/animations.jsx';
-// const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-// const offerContent = document.querySelector('.offer-container__content');
-
-// if (!isMobile) {
-// 	// LagTextFunction();
-// 	if (offerContent) {
-// 		animateTitles(
-// 			'.offer-container__title',
-// 			'.offer-container__title',
-// 			'.offer-container__title',
-// 			'=150',
-// 			'=150',
-// 		);
-// 	}
+// import modalOpen from './modules/modalOpen.js';
+import {
+	timeLineHeaderItem,
+	timeLineTextItem,
+	// buttonShow
+} from './animations/anime-js.jsx';
 
 
-// }
-
-const textItem = document.querySelector('.performance__text');
-if (textItem) {
-	timeLineTextItem();
-}
 document.addEventListener('DOMContentLoaded', function () {
+	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+	const textItem = document.querySelector('.performance__text');
+	if (textItem) {
+		timeLineTextItem();
+	}
+
+	returnToSavedPosition();
+
 	let dateContainer = document.querySelector('.performance__date');
 	if (!dateContainer) return;
 
@@ -43,14 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	month = month.replace('.', '').charAt(0).toUpperCase() + month.slice(1, -1);
 
 	dateContainer.innerHTML = `<div class="day">${day}</div> <div class="data-wrapp"> <div class="month">${month}</div><div class="status"><p>доступен </br> для&nbsp;работы</p></div></div>`;
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-	returnToSavedPosition();
-	buttonShow();
-	modalOpen();
-
-	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+	// buttonShow();
+	// modalOpen();
 	const slideServices = document.querySelector('.slide-services');
 
 	//* --------------------------- Animation Header -----------------------------
@@ -104,6 +91,3 @@ console.log('%c РОССИЯ ',
 	'border-left: 5px solid black; border-top: 30px solid white; ' +
 	'border-right: 2px solid black; border-bottom: 30px solid red;');
 //* ----------------------------------------------------------------------------
-
-// import dynamicAdaptive from './libraries/move-elements.js';
-// dynamicAdaptive();

@@ -1,16 +1,110 @@
-import { applyParallax, tlVertical, tlRotate, cassieEvans } from './animations/animations.jsx';
-tlVertical(); cassieEvans();
+import { animateTitles, tlVertical, tlVerticalReverse, tlRotate, cassieEvans, skewSetter, animateImage, myBounce } from './animations/animations.jsx';
+import Waves from './animations/waves.jsx';
+//* ----------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+	myBounce(
+		'.bonse-01',
+		'.bonse-01',
+		'.bonse-01',
+		'=50',
+		'=50',
+	);
 
-setTimeout(() => {
-	tlRotate();
-}, 2000);
+	myBounce(
+		'.bonse-02',
+		'.bonse-02',
+		'.bonse-02',
+		'=50',
+		'=50',
+	);
+	if (!isMobile) {
+		tlVertical(); cassieEvans(); skewSetter();
+		animateTitles(
+			'.split-01',
+			'.split-trigger-01',
+			'.split-trigger-01',
+			'=150',
+			'=150',
+		);
+		animateTitles(
+			'.split-02',
+			'.split-trigger-02',
+			'.split-trigger-02',
+			'=150',
+			'=150',
+		);
+		animateTitles(
+			'.split-03',
+			'.split-trigger-03',
+			'.split-trigger-03',
+			'=150',
+			'=150',
+		);
+		animateTitles(
+			'.split-04',
+			'.split-trigger-04',
+			'.split-trigger-04',
+			'=150',
+			'=150',
+		);
+		animateTitles(
+			'.split-05',
+			'.split-trigger-05',
+			'.split-trigger-05',
+			'=150',
+			'=150',
+		);
+		animateImage(
+			'.imgtr-01',
+			'.imgtr-01',
+			'.imgtr-01',
+			'=50',
+			'=50',
+		);
+		animateImage(
+			'.imgtr-02',
+			'.imgtr-02',
+			'.imgtr-02',
+			'=50',
+			'=50',
+		);
+		animateImage(
+			'.imgtr-03',
+			'.imgtr-03',
+			'.imgtr-03',
+			'=50',
+			'=50',
+		);
+		animateImage(
+			'.imgtr-04',
+			'.imgtr-04',
+			'.imgtr-04',
+			'=50',
+			'=50',
+		);
+		animateImage(
+			'.imgtr-05',
+			'.imgtr-05',
+			'.imgtr-05',
+			'=50',
+			'=50',
+		);
+	}
 
-// document.addEventListener('DOMContentLoaded', () => {
-// 	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-// 	const parallax = document.querySelector('.parallax');
-// 	if (!isMobile) {
-// 		if (parallax) {
-// 			applyParallax('.material-parallax');
-// 		};
-// 	}
-// });
+	setTimeout(() => {
+		tlRotate();
+	}, 2000);
+	//* -------------------------- Canvas Animation ------------------------------
+	//* Ищем элемент с атрибутом [data-page]
+	const pageElement = document.body.querySelector('[data-page]');
+	//* Получаем значение data-page, если элемент найден
+	const currentPage = pageElement ? pageElement.getAttribute(
+		'data-page') : null;
+
+	if (currentPage === 'index' && !isMobile) {
+		const waves = new Waves('#holder', { waves: 2, width: 400, });
+		waves.animate();
+		tlVerticalReverse();
+	}
+});
