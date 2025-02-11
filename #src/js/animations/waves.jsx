@@ -162,9 +162,9 @@ export default (function () {
 				Waves.hueFw = true;
 			}
 
-			var a = Math.floor(4 * Math.sin(0.3 * Waves.hue) + 70);
-			var b = Math.floor(19 * Math.sin(0.3 * Waves.hue + 2) + 90);
-			var c = Math.floor(19 * Math.sin(0.3 * Waves.hue + 4) + 90);
+			let a = Math.floor(4 * Math.sin(0.7 * Waves.hue) + 70);
+			let b = Math.floor(29 * Math.sin(0.3 * Waves.hue + 2) + 100);
+			let c = Math.floor(29 * Math.sin(0.3 * Waves.hue + 4) + 90);
 			Waves.color = 'rgba(' + a + ',' + b + ',' + c + ', 0.1)';
 		}
 	}
@@ -291,24 +291,24 @@ export default (function () {
 			this.data = [];
 		}
 
-		// time() {
-		// 	return (performance || Date).now();
-		// }
+		time() {
+			return (performance || Date).now();
+		}
 
-		// log() {
-		// 	if (!this.last) {
-		// 		this.last = this.time();
-		// 		return 0;
-		// 	}
+		log() {
+			if (!this.last) {
+				this.last = this.time();
+				return 0;
+			}
 
-		// 	this.new = this.time();
-		// 	this.delta = this.new - this.last;
-		// 	this.last = this.new;
+			this.new = this.time();
+			this.delta = this.new - this.last;
+			this.last = this.new;
 
-		// 	this.data.push(this.delta);
-		// 	if (this.data.length > 10)
-		// 		this.data.shift();
-		// }
+			this.data.push(this.delta);
+			if (this.data.length > 10)
+				this.data.shift();
+		}
 	}
 
 	// Глобальная вспомогательная функция для перебора массива

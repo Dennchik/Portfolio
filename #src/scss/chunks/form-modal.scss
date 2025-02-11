@@ -134,7 +134,7 @@
 			}
 		}
 
-		@include max-375 {
+		@include screen-375 {
 			width: 100%;
 		}
 
@@ -160,7 +160,7 @@
 			justify-content: center;
 			overflow: hidden;
 
-			@include max-375 {
+			@include screen-375 {
 				width: 100%;
 			}
 

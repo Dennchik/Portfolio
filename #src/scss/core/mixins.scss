@@ -87,7 +87,7 @@
 	}
 }
 
-@mixin max-375 {
+@mixin screen-375 {
 	@media screen and (max-width: 375px) {
 		@content;
 	}
@@ -173,14 +173,20 @@
 	}
 }
 
-@mixin minmax-320-1920 {
-	@media (min-width: 320.98px) and (max-width: 1920px) {
+@mixin minmax-690-1920 {
+	@media (min-width: 690.98px) and (max-width: 1920px) {
 		@content;
 	}
 }
 
 @mixin minmax-490-1920 {
 	@media (min-width: 490.98px) and (max-width: 1920px) {
+		@content;
+	}
+}
+
+@mixin minmax-320-1920 {
+	@media (min-width: 320.98px) and (max-width: 1920px) {
 		@content;
 	}
 }

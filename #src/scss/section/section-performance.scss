@@ -37,12 +37,12 @@
 
 						@include minmax-490-1920 {
 							font-size: calc(
-								24px + (62 - 24) * ((100vw - 490px) / (1920 - 490))
+								44px + (62 - 44) * ((100vw - 490px) / (1920 - 490))
 							);
 						}
 
 						@include screen-490 {
-							font-size: 24px;
+							font-size: 46px;
 						}
 					}
 				}
@@ -52,7 +52,6 @@
 
 					._icon {
 						transform: translateY(2rem);
-						margin-right: 1rem;
 
 						&::before {
 							font-size: 3.2rem;
@@ -65,15 +64,16 @@
 
 		&:nth-child(2) {
 			display: flex;
-			column-gap: 2rem;
+			column-gap: 3.6rem;
 
-			@include screen-768 {
+			@include screen-690 {
 				flex-direction: column;
 			}
 
 			.performance__column {
 				&:nth-child(1) {
 					display: flex;
+
 					span {
 						display: block;
 					}
@@ -88,6 +88,13 @@
 			font-family: $font-family-secondary;
 			font-weight: 900;
 		}
+
+		&.bonse-01 {
+			@include screen-690 {
+				padding-left: 12vw;
+			}
+		}
+
 		h1 {
 			font-family: $font-family-exclude;
 			text-transform: uppercase;
@@ -102,11 +109,11 @@
 				}
 
 				@include minmax-490-1920 {
-					font-size: calc(36px + (132 - 36) * ((100vw - 490px) / (1920 - 490)));
+					font-size: calc(39px + (132 - 39) * ((100vw - 490px) / (1920 - 490)));
 				}
 
 				@include screen-490 {
-					font-size: 36px;
+					font-size: 39px;
 				}
 			}
 		}
@@ -122,6 +129,7 @@
 		align-items: flex-end;
 		gap: 1rem;
 		color: #747272;
+		margin-left: 1rem;
 
 		.day {
 			padding-top: 1rem;

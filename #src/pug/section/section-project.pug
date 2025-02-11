@@ -2,9 +2,9 @@
 	._container
 		._body
 			._content
-				._row 
+				._row
 					._column 
-						._title.col-1  
+						._title.col-2  
 							._icon._rotate-el-02
 								+iconfont('sun', '_icon')
 							h3 Избранные кейсы  
@@ -12,46 +12,52 @@
 					.grid-box._column
 						._content
 							._item.-c1-r1.-title.split-trigger-01.lag-1
-								a(href="https://sadovskiy.art/")._split-wrapper.split-01
-									._split
-										p Sadovski 
-									._split 
-										p Design
-									span.t-01901 Development 
-							._item.-c2-r1.-title.split-trigger-02.lag-2
-								figure._image.box-shadow.imgtr-01
-									img(src="@@webRoot/img/project/project-01.png" alt="image") 
-							._item.-c1-r2.lag-1
-								figure._image.box-shadow.imgtr-02
-									img(src="@@webRoot/img/project/project-02.png" alt="image") 
-							._item.-c2-r2.-title.split-trigger-02.lag-2
-								a(href="https://gusli-studio.ru/")._split-wrapper.split-02
-									._split
+								a(href="https://gusli-studio.ru" target="_blank").split._split-link.split-01
+									._line
 										p Gysli 
-									._split
+									._line
 										p Media-Group
 									span.t-01901 UX/UI Design, Development
+							._item.-c2-r1.split-trigger-02.lag-2
+								figure._image.box-shadow.imgtr-01
+									img(src="@@webRoot/img/project/project-02.png" alt="image") 
+							._item.-c1-r2.lag-1
+								figure._image.box-shadow.imgtr-02
+									img(src="@@webRoot/img/project/project-01.png" alt="image") 
+							._item.-c2-r2.-title.split-trigger-02.lag-2
+								a(href="https://sadovskiy.art/" target="_blank").split._split-link.split-02
+									._line
+										p Sadovski 
+									._line 
+										p Design
+									span.t-01901 Development 
 							._item.-c2-r3.lag-1
 								figure._image.box-shadow.imgtr-03
 									img(src="@@webRoot/img/project/project-03.png" alt="image") 
 							._item.-c3-r3.-title.split-trigger-03.lag-2
-								a(href="")._split-wrapper.split-03 
-									._split
+								a(href="" target="_blank").split._split-link.split-03 
+									._line
 										p Djonga
 									span.t-01901 Development
 							._item.-c2-r4.-title.split-trigger-04.lag-1
-								a(href="")._split-wrapper.split-04
-									._split
+								a(href="" target="_blank").split._split-link.split-04
+									._line
 										p Te Tkani
 									span.t-01901 Development
 							._item.-c3-r4.lag-2
 								figure._image.box-shadow.imgtr-04
 									img(src="@@webRoot/img/project/project-04.png" alt="image") 
 							._item.-c1-r5.-title.split-trigger-05.lag-1
-								a(href="")._split-wrapper.split-05
-									._split
+								a(href="" target="_blank").split._split-link.split-05
+									._line
 										p EssenPro
 									span.t-01901 Development
 							._item.-c2-r5.lag-2
 								figure._image.box-shadow.imgtr-05
-									img(src="@@webRoot/img/project/project-05.png" alt="image") 
+									img(src="@@webRoot/img/project/project-05.png" alt="image")
+			.content-hidden 
+				._item
+					._item-heading.animation-title.uppercase
+						span.split._split-item
+							._line
+					._item-footer

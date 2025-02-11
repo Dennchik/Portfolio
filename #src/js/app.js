@@ -1,8 +1,21 @@
-import { animateTitles, tlVertical, tlVerticalReverse, tlRotate, cassieEvans, skewSetter, animateImage, myBounce } from './animations/animations.jsx';
+import { animateTitles, tlVerticalOpacity, tlVerticalReverse, tlRotateIcon, cassieEvans, skewSetter, animateImage, myBounce, iconWiggle } from './animations/animations.jsx';
 import Waves from './animations/waves.jsx';
 //* ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
+	const iconContacts = document.querySelector('.icon-contacts');
+	if (iconContacts) {
+		iconContacts.addEventListener('mouseover', () => {
+			iconWiggle('.icon-contacts');
+		});
+	} else {
+		console.error('Элемент с классом .icon-contacts не найден!');
+	}
+});
+//* ----------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
 	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+	cassieEvans();
+	tlVerticalOpacity();
 	myBounce(
 		'.bonse-01',
 		'.bonse-01',
@@ -13,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	myBounce(
 		'.bonse-02',
-		'.bonse-02',
-		'.bonse-02',
+		'.triger-02',
+		'.triger-02',
 		'=50',
 		'=50',
 	);
 	if (!isMobile) {
-		tlVertical(); cassieEvans(); skewSetter();
+		skewSetter();
 		animateTitles(
 			'.split-01',
 			'.split-trigger-01',
@@ -92,13 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		);
 	}
 
+
 	setTimeout(() => {
-		tlRotate();
+		tlRotateIcon();
 	}, 2000);
 	//* -------------------------- Canvas Animation ------------------------------
-	//* Ищем элемент с атрибутом [data-page]
+	// Ищем элемент с атрибутом [data-page]
 	const pageElement = document.body.querySelector('[data-page]');
-	//* Получаем значение data-page, если элемент найден
+
+	// Получаем значение data-page, если элемент найден
 	const currentPage = pageElement ? pageElement.getAttribute(
 		'data-page') : null;
 
