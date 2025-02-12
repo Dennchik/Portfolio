@@ -52,6 +52,14 @@
 		width: 100%;
 	}
 
+	// .header__burger-menu
+	&__burger-button {
+		margin-left: 1.6rem;
+		@include min-768 {
+			display: none;
+		}
+	}
+
 	// .header__content
 	&__content {
 		position: relative;
@@ -106,15 +114,21 @@
 
 		span {
 			opacity: 0.7;
+			z-index: -1;
+
 			font: {
 				size: 2.4rem;
 				weight: 400;
 			}
-			z-index: -1;
+
 			@extend .text-shadow;
 
-			@include screen-690 {
+			@include screen-960 {
 				font-size: 2rem;
+			}
+
+			@include screen-425 {
+				display: none;
 			}
 		}
 	}
@@ -126,7 +140,7 @@
 		transition: all 0.4s ease 0s;
 		margin-right: 1.5rem;
 		text-transform: uppercase;
-		align-items: flex-start;
+		align-items: center;
 
 		@include screen-768 {
 			display: none;
@@ -189,8 +203,8 @@
 	display: flex;
 	align-items: center;
 
-	// .el-community__phone
-	&__phone {
+	// .el-community__contact
+	&__contact {
 		display: flex;
 		align-items: center;
 		transition: all 0.4s ease-in-out;

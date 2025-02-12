@@ -55,6 +55,7 @@
 			font-weight: 700;
 			line-height: 1;
 			color: gray;
+			@extend .text-shadow;
 
 			@include minmax-490-1920 {
 				font-size: calc(34px + (54 - 34) * ((100vw - 490px) / (1920 - 490)));

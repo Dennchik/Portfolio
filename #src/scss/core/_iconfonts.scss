@@ -170,6 +170,11 @@
 		content: $icon-services;
 	}
 }
+.icon-git-hub-circle {
+	&:before {
+		content: $icon-git-hub-circle;
+	}
+}
 .icon-youtube {
 	&:before {
 		content: $icon-youtube;

@@ -1,4 +1,4 @@
-import { animateTitles, tlVerticalOpacity, tlVerticalReverse, tlRotateIcon, cassieEvans, skewSetter, animateImage, myBounce, iconWiggle } from './animations/animations.jsx';
+import { animateTitles, tlVerticalOpacity, tlVerticalReverse, tlRotateIcon, cassieEvans, skewSetter, animateImage, tmBounce, iconWiggle } from './animations/animations.jsx';
 import Waves from './animations/waves.jsx';
 //* ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,22 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
 	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 	cassieEvans();
 	tlVerticalOpacity();
-	myBounce(
-		'.bonse-01',
-		'.bonse-01',
-		'.bonse-01',
-		'=50',
-		'=50',
-	);
 
-	myBounce(
-		'.bonse-02',
-		'.triger-02',
-		'.triger-02',
-		'=50',
-		'=50',
-	);
 	if (!isMobile) {
+		tmBounce(
+			'.bonse-01',
+			'.tr-row-01',
+			'.tr-row-01',
+			'=50',
+			'=50',
+		);
+
+		tmBounce(
+			'.bonse-02',
+			'.triger-02',
+			'.triger-02',
+			'=50',
+			'=50',
+		);
 		skewSetter();
 		animateTitles(
 			'.split-01',

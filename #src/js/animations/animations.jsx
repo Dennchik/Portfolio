@@ -216,7 +216,7 @@ export function animateImage(element, trigger, endTrigger, start, end) {
 	});
 }
 //* ____________________ Анимация: Появление текста ____________________________
-export function myBounce(target, trigger, endTrigger, start, end) {
+export function tmBounce(target, trigger, endTrigger, start, end) {
 	// Create a custom bounce ease:
 	CustomBounce.create('Bounce', {
 		strength: 0.2,

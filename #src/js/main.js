@@ -85,6 +85,24 @@ document.addEventListener('DOMContentLoaded', function () {
 		// observerMutation();
 	}
 });
+
+//* ------------------------------ Burger Menu ---------------------------------
+const burgerButton = document.querySelector('.burger-button__items');
+burgerButton.addEventListener('click', () => {
+	const accelerate = document.querySelector('.accelerate');
+	accelerate.classList.toggle('hide');
+});
+//* ----------------------------- Burger Button --------------------------------
+const buttonItems = document.querySelector('.burger-button');
+buttonItems.addEventListener('click', () => {
+	buttonItems.classList.toggle('_open-menu');
+	if (buttonItems.classList.contains('_open-menu')) {
+		document.body.classList.add('no-scroll');
+	} else {
+		document.body.classList.remove('no-scroll');
+	}
+
+});
 //* ----------------------------------------------------------------------------
 console.log('%c РОССИЯ ',
 	'background: blue; color: yellow; font-size: x-large; ' +

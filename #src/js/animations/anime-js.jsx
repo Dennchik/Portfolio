@@ -76,7 +76,8 @@ export function timeLineTextItem() {
 		targets: '.el-2',
 		opacity: [0, 0.7],
 		translateX: [1500, 0],
-		scale: [5, 1],
+		scaleX: [5, 0.7],
+		scaleY: [5, 1.5],
 		delay: anime.stagger(100, { start: 100 }),
 		easing: 'easeInOutSine',
 		begin: function (anim) {
