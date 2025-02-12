@@ -90,6 +90,18 @@
 		&:nth-child(2) {
 			transform: translateY(7px);
 		}
+
+		.icon-home {
+			&::before {
+				font-size: 22px;
+				color: #b3b3d6;
+			}
+		}
+	}
+
+	// .header__icon-home
+	&__icon-home {
+		margin-right: 1.6rem;
 	}
 
 	// .header__logo
@@ -138,20 +150,8 @@
 		user-select: none;
 		display: flex;
 		transition: all 0.4s ease 0s;
-		margin-right: 1.5rem;
 		text-transform: uppercase;
 		align-items: center;
-
-		@include screen-768 {
-			display: none;
-		}
-
-		.icon-home {
-			&::before {
-				font-size: 22px;
-				color: #b3b3d6;
-			}
-		}
 	}
 
 	// .header__item
@@ -208,6 +208,7 @@
 		display: flex;
 		align-items: center;
 		transition: all 0.4s ease-in-out;
+		margin-left: 1.6rem;
 
 		&:hover {
 			.icon-contacts {

@@ -10,7 +10,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	min-height: 460px;
 	position: fixed;
 	width: 100%;
 	height: calc(100vh - 64px);
@@ -18,12 +17,12 @@
 	top: 64px;
 	z-index: 13;
 	perspective: 1000px;
-	color: #fff;
 
 	// .burger-menu__body
 	&__body {
 		height: 100%;
 		margin: 0 15px;
+		min-width: 288px;
 	}
 
 	// .burger-menu__content
@@ -33,7 +32,7 @@
 		transform-origin: 200% 100%;
 
 		&::before {
-			top: 10%;
+			top: 16%;
 			right: -94%;
 			background: transparent url('../img/rope.png') no-repeat left / cover;
 			position: absolute;
@@ -45,7 +44,7 @@
 		}
 
 		&::after {
-			bottom: 10%;
+			bottom: 16%;
 			right: -94%;
 			background: transparent url('../img/rope.png') no-repeat left / cover;
 			position: absolute;
@@ -62,14 +61,14 @@
 		display: flex;
 		flex-direction: column;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-		border-radius: 6px;
+		border-radius: 3px;
 		background-clip: padding-box;
 		transform: translate3d(0, 0, 0);
 		position: relative;
 		height: 100%;
 
 		transform-origin: 0% 50%;
-		background: #797979fa;
+		background: rgba(14, 14, 19, 0.95);
 		text-shadow: none;
 
 		h1 {
@@ -80,9 +79,17 @@
 			font-family: $font-family-secondary;
 			color: red;
 			text-shadow:
-				0 0 15px #000,
-				0 0 1em #000,
-				0 0 0.1em $neon-pink;
+				0 0 2px #000,
+				0 0 2px #000,
+				0 0 1px blue;
+		}
+
+		.header__menu {
+			height: 100%;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 4rem;
 		}
 	}
 
@@ -90,14 +97,35 @@
 	&__menu-header {
 		padding: 10px;
 		line-height: 1;
-		box-shadow: 0px 1px 3px #4b4b4b;
+		border-bottom: 1px solid rgba(128, 128, 128, 0.322);
+		display: flex;
+		gap: 1.6rem;
+	}
+
+	.header__icon-home {
+		.icon-home {
+			&::before {
+				text-shadow:
+					0 0 2px #000,
+					0 0 2px #000,
+					0 0 1px blue;
+				font-size: 26px;
+				color: #5e5bb1;
+				transform: translateY(2px);
+			}
+		}
 	}
 
 	// .burger-menu__menu-content
 	&__menu-content {
 		overflow-x: hidden;
+		height: 100%;
+		width: 100%;
+
 		padding: 16px 18px 16px 16px;
 		align-self: start;
+		color: #222222;
+		font-size: 2.4rem;
 	}
 
 	&__content,
@@ -119,9 +147,9 @@
 
 	// .burger-menu__menu-footer
 	&__menu-footer {
-		box-shadow: 0px -1px 3px #4b4b4b;
 		width: 100%;
 		padding: 10px;
+		border-top: 1px solid rgba(128, 128, 128, 0.322);
 	}
 
 	// .burger-menu__download
@@ -132,16 +160,17 @@
 	}
 
 	// .burger-menu__linck
-	&__icon {
+	&__icon-link {
 		&:not(:last-child) {
 			margin-right: 1rem;
 		}
 
 		._icon {
 			&::before {
-				color: #5e5bb1;
+				// color: $black-color;
 				font-size: 3.8rem;
 				font-weight: 700;
+				color: #5e5bb1;
 			}
 		}
 	}

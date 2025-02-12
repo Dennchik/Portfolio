@@ -8,10 +8,12 @@
 					._text
 						span Александр Васильев
 			._column.el-community
-				ul._menu
-					li._item
-						a(href="@@webRoot/index.html")
-							i.icon-home
+				a(href="@@webRoot/index.html" data-move-el="[{'bp-max': 768.98, 'index': 1, 'target': '.bp-2'}]")._icon-home
+					i.icon-home
+				ul._menu(data-move-el="[{'bp-max': 768.98, 'index': 0, 'target': '.bp-1'}]")
+					//- li._item
+					//- 	a(href="@@webRoot/index.html")
+					//- 		i.icon-home
 					li._item
 						a(href="@@webRoot/services.html" data-letters="Проекты")._link-key
 							| Проекты 

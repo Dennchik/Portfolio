@@ -1,5 +1,7 @@
-// import { AnimationLogo } from './assets/logoAnimation.js';
-// AnimationLogo(); 
+import { dinamicAdaptive } from './assets/move-elements.js';
+
+dinamicAdaptive();
+
 import loaded from './assets/preloader.js';
 
 loaded('.preloader');
