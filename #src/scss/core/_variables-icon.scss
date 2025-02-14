@@ -2,6 +2,10 @@
 $icon-font-family: 'icon-set' !default;
 $icon-font-path: '../fonts' !default;
 
+$icon-plus: string.unquote('"\\e911"');
+$icon-check: string.unquote('"\\e90f"');
+$icon-file-download: string.unquote('"\\e910"');
+$icon-arow-down: string.unquote('"\\e90a"');
 $icon-sun: string.unquote('"\\f185"');
 $icon-snow: string.unquote('"\\e90d"');
 $icon-cycle: string.unquote('"\\e917"');
@@ -19,8 +23,6 @@ $icon-youtube-logo: string.unquote('"\\f167"');
 $icon-whatsapp: string.unquote('"\\f232"');
 $icon-vk-brand: string.unquote('"\\f189"');
 $icon-telegram-fly: string.unquote('"\\e91b"');
-$icon-check: string.unquote('"\\e90f"');
-$icon-file-download: string.unquote('"\\e910"');
 $icon-volume-high: string.unquote('"\\ea26"');
 $icon-home: string.unquote('"\\e909"');
 $icon-phone-ringing: string.unquote('"\\e904"');

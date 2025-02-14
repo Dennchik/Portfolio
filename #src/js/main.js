@@ -1,23 +1,24 @@
-import { dinamicAdaptive } from './assets/move-elements.js';
-
-dinamicAdaptive();
-
 import loaded from './assets/preloader.js';
-
 loaded('.preloader');
+
+import { dynamicAdaptive } from './assets/dynamic-adaptive.js';
+dynamicAdaptive();
+//* ---------------- Плавная прокрутка страницы до позиции ---------------------
+import { anchorsSmoothScrolling } from './modules/anchors-smooth-scrolling.js';
+const anchorLink = document.querySelector('.anchor-link');
+if (anchorLink) {
+	anchorsSmoothScrolling();
+}
 //* ----------------------------------------------------------------------------
 import returnToSavedPosition from './modules/return-position.js';
 // import modalOpen from './modules/modalOpen.js';
 import {
 	timeLineHeaderItem,
 	timeLineTextItem,
-	// buttonShow
 } from './animations/anime-js.jsx';
 
 
 document.addEventListener('DOMContentLoaded', function () {
-	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
 	const textItem = document.querySelector('.performance__text');
 	if (textItem) {
 		timeLineTextItem();
@@ -38,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	dateContainer.innerHTML = `<div class="day">${day}</div> <div class="data-wrapp"> <div class="month">${month}</div><div class="status"><p>доступен </br> для&nbsp;работы</p></div></div>`;
 
-	// buttonShow();
-	// modalOpen();
-	const slideServices = document.querySelector('.slide-services');
 
 	//* --------------------------- Animation Header -----------------------------
 	const header = document.querySelector('.header');
@@ -58,13 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				header.classList.remove('with-border');
 			}
 		};
-
-		// Инициализация логики timeLineHeaderItem (если нужно)
-		// const timeLineHeaderItem = () => {
-		// 	console.log('timeLineHeaderItem logic executed');
-		// 	// Добавьте вашу логику здесь, если она присутствует
-		// };
-
 		// Выполнение timeLineHeaderItem при загрузке
 		timeLineHeaderItem();
 
@@ -76,16 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			window.removeEventListener('scroll', handleScroll);
 		});
 	}
-
-	if (!isMobile || innerWidth > 1024) {
-		// tlFooterParallel();
-		// tlFooterHorizontal();
-		// refreshScrollTrigger();
-	}
-
-	if (slideServices) {
-		// observerMutation();
-	}
 });
 
 //* ------------------------------ Burger Menu ---------------------------------
@@ -96,16 +77,40 @@ burgerButton.addEventListener('click', () => {
 });
 //* ----------------------------- Burger Button --------------------------------
 const buttonItems = document.querySelector('.burger-button');
+const itembutton = document.querySelector('.item-button');
+const closeButton = document.querySelector('.project-list__close-button');
+const projectList = document.querySelector('.project-list');
+
 buttonItems.addEventListener('click', () => {
 	buttonItems.classList.toggle('_open-menu');
+
 	if (buttonItems.classList.contains('_open-menu')) {
 		document.body.classList.add('no-scroll');
 	} else {
 		document.body.classList.remove('no-scroll');
 	}
-
 });
-//* ----------------------------------------------------------------------------
+
+itembutton.addEventListener('click', () => {
+	projectList.classList.add('_open-list');
+
+	if (projectList.classList.contains('_open-list')) {
+		document.body.classList.add('no-scroll');
+	} else {
+		document.body.classList.remove('no-scroll');
+	}
+});
+
+closeButton.addEventListener('click', () => {
+	document.body.classList.remove('no-scroll');
+	projectList.classList.remove('_open-list');
+});
+
+
+// import { dinamicAdaptive } from './assets/move-elements.js';
+
+// dinamicAdaptive();
+// //* ----------------------------------------------------------------------------
 console.log('%c РОССИЯ ',
 	'background: blue; color: yellow; font-size: x-large; ' +
 	'border-left: 5px solid black; border-top: 30px solid white; ' +

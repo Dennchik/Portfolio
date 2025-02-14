@@ -2,13 +2,11 @@
 
 .project {
 	// .project__body
-
 	&__body {
 		padding: 12rem 0;
 
 		@include screen-690 {
 			padding: 6rem 0;
-			overflow: hidden;
 		}
 	}
 
@@ -43,11 +41,11 @@
 			transform: translateX(-4rem);
 
 			@include minmax-320-1920 {
-				font-size: calc(36px + (44 - 36) * ((100vw - 320px) / (1920 - 320)));
+				font-size: calc(32px + (44 - 32) * ((100vw - 320px) / (1920 - 320)));
 			}
 
 			@include screen-320 {
-				font-size: 36px;
+				font-size: 32px;
 			}
 
 			@extend .text-shadow;
@@ -92,13 +90,13 @@
 
 	// .grid-box__item
 	&__item {
-		// max-width: 490px;
 		position: relative;
 		width: 100%;
 		display: grid;
 		align-items: center;
 		align-content: center;
 		margin: 3vw 0;
+		overflow: hidden;
 
 		&:nth-child(even) {
 			margin-left: -4vw;
@@ -322,6 +320,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	mix-blend-mode: difference;
+
 	// .content-hidden__item
 	&__item {
 	}
@@ -332,6 +331,156 @@
 
 	// .content-hidden__plit-item
 	&__plit-item {
+	}
+}
+
+.project-buttons {
+	margin-top: 6rem;
+
+	// .project-buttons__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(3, max-content);
+		gap: 2rem;
+
+		span {
+			white-space: nowrap;
+		}
+
+		@include screen-768 {
+			grid-template-columns: repeat(2, max-content);
+		}
+
+		@include screen-490 {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		@include screen-320 {
+			width: 100%;
+		}
+	}
+
+	// .project-buttons__item-fade
+	&__item-fade {
+		padding: 1.6rem 0;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+
+		flex-direction: column;
+		line-height: 1;
+
+		span {
+			display: block;
+			line-height: 1;
+			font-size: 18px;
+		}
+
+		@include screen-768 {
+			display: none;
+		}
+	}
+
+	// .project-buttons__item
+	&__item {
+		cursor: pointer;
+		position: relative;
+		padding: 0.5rem 2.6rem;
+		border: 1px solid #8a8a8a;
+		border-radius: 4px;
+		transform: skewX(-10deg);
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+
+		font: {
+			family: $font-family-secondary;
+			size: 32px;
+			weight: 600;
+		}
+
+		span {
+			pointer-events: none;
+			display: block;
+			text-transform: uppercase;
+			transform: skewX(10deg);
+			opacity: 1;
+			transition: opacity 0.9s ease-in-out;
+			@extend .text-shadow;
+
+			@include screen-490 {
+				letter-spacing: 1.1px;
+			}
+		}
+
+		&:hover {
+			.running-line__inner {
+				@include min-1024 {
+					opacity: 1;
+					transition-duration: 0.6s;
+				}
+			}
+			@include min-1024 {
+				> span {
+					opacity: 0;
+				}
+			}
+		}
+
+		@include minmax-490-920 {
+			font-size: calc(20px + (32 - 20) * ((100vw - 490px) / (920 - 420)));
+		}
+
+		@include screen-490 {
+			display: flex;
+			justify-content: center;
+			font-size: 16px;
+		}
+
+		@include screen-320 {
+			width: 100%;
+		}
+	}
+}
+
+.running-line {
+	padding: 0.5rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	pointer-events: none;
+	height: 100%;
+	display: flex;
+	align-items: center;
+
+	// .running-line__inner
+	&__inner {
+		transform: translate3d(calc(-25% + 1rem), 0, 0);
+		width: fit-content;
+		position: relative;
+		display: flex;
+		opacity: 0;
+		transition: opacity 0.9s ease-in-out;
+
+		@include min-1024 {
+			animation: lineMarquee 3s linear infinite;
+		}
+
+		span {
+			white-space: nowrap;
+		}
+	}
+
+	@keyframes lineMarquee {
+		0% {
+			transform: translate3d(calc(-25% + 1rem), 0, 0);
+		}
+
+		100% {
+			transform: translate3d(calc(-50% + 1rem), 0, 0);
+		}
 	}
 }
 

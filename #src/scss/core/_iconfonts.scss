@@ -25,6 +25,26 @@
 	font-variant-ligatures: discretionary-ligatures;
 }
 
+.icon-plus {
+	&:before {
+		content: $icon-plus;
+	}
+}
+.icon-check {
+	&:before {
+		content: $icon-check;
+	}
+}
+.icon-file-download {
+	&:before {
+		content: $icon-file-download;
+	}
+}
+.icon-arow-down {
+	&:before {
+		content: $icon-arow-down;
+	}
+}
 .icon-sun {
 	&:before {
 		content: $icon-sun;
@@ -108,16 +128,6 @@
 .icon-telegram-fly {
 	&:before {
 		content: $icon-telegram-fly;
-	}
-}
-.icon-check {
-	&:before {
-		content: $icon-check;
-	}
-}
-.icon-file-download {
-	&:before {
-		content: $icon-file-download;
 	}
 }
 .icon-volume-high {

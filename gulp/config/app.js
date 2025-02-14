@@ -31,7 +31,12 @@ export const app = {
 
 		entry: {
 			app: { import: ['./#src/js/app.js'] },
-			main: { import: ['./#src/js/main.js'] },
+			main: {
+				import: ['./#src/js/main.js'],
+				dependOn: ['anime-vendors'],
+				filename: '[name].min.js'
+			},
+			// dinamic: { import: ['./#src/js/assets/dynamic.js'] },
 			index: {
 				import: ['./#src/js/pages/index.jsx'],
 				// dependOn: ['react-vendors', 'anime-vendors', 'swiper-bundle'],

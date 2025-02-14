@@ -1,0 +1,122 @@
+@use '../core/all' as *;
+
+.project-list {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: 100vh;
+	z-index: 13;
+	transform: translateX(100%);
+	transition: transform 0.5s cubic-bezier(0.7, -0.955, 0.55, 1.55);
+
+	&._open-list {
+		transition: transform 0.5s ease-in;
+		transform: translateX(0);
+	}
+
+	// .project-list__body
+	&__body {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background: rgba(20, 20, 24, 0.925);
+		border-left: 1px solid $black-color;
+		border-right: 1px solid $black-color;
+		padding: 25px 40px;
+
+		@include screen-490 {
+			padding: 16px 20px;
+		}
+	}
+
+	// .project-list__content
+	&__content {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .project-list__header
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 3rem;
+	}
+
+	// .project-list__title
+	&__title {
+		h2 {
+			width: auto;
+			font-size: 3.2rem;
+
+			span {
+				// display: block;
+				line-height: 1;
+				&:nth-child(2) {
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+
+	// .project-list__close-button
+	&__close-button {
+		transform: translateX(50%);
+		._icon {
+			transform: rotate(-45deg);
+			&::before {
+				color: #fff;
+				font-size: 34px;
+			}
+		}
+	}
+
+	// .project-list__list
+	&__list {
+		height: 100%;
+		overflow-x: hidden;
+		display: block;
+		span {
+			font-size: 2.2rem;
+		}
+	}
+
+	// .project-list__link
+	&__link {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr min-content;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1rem 0;
+		gap: 1.5rem;
+
+		span {
+			display: block;
+			text-align: right;
+
+			&:nth-child(1) {
+				justify-self: start;
+				white-space: nowrap;
+			}
+
+			@include screen-425 {
+				justify-self: start;
+			}
+		}
+
+		@include screen-425 {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	// .project-list__list-item
+	&__list-item {
+		&:not(:last-child) {
+			border-bottom: 1px solid gray;
+		}
+	}
+}

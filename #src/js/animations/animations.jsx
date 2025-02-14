@@ -15,10 +15,10 @@ ScrollTrigger.normalizeScroll(false);
 ScrollTrigger.config({ ignoreMobileResize: true });
 
 //* ----------------------------------------------------------------------------
-export const smoother = ScrollSmoother.create({
+const smoother = ScrollSmoother.create({
 	wrapper: '#wrapper',
 	content: '#content',
-	speed: 1.5,
+	speed: 1,
 	smooth: 1.5,
 	effects: true,
 	smoothTouch: 0.1,
@@ -28,40 +28,40 @@ export function refreshScrollTrigger() {
 	return ScrollTrigger.refresh();
 }
 
-export function LagTextFunction() {
-	const smoother = ScrollSmoother.get();
+// export function LagTextFunction() {
+// 	const smoother = ScrollSmoother.get();
 
-	if (window.innerWidth > 490) {
-		smoother.effects('.lag-1', { lag: 2, speed: 1 });
-		smoother.effects('.lag-2', { lag: 2, speed: 1.2 });
-		smoother.effects('.col-1', { lag: 1.5, speed: 0.8 });
-		smoother.effects('.col-2', { lag: 1.5, speed: 1 });
-	}
-}
+// 	if (window.innerWidth > 490) {
+// 		smoother.effects('.lag-1', { lag: 2, speed: 1 });
+// 		smoother.effects('.lag-2', { lag: 2, speed: 1.2 });
+// 		smoother.effects('.col-1', { lag: 1.5, speed: 0.8 });
+// 		smoother.effects('.col-2', { lag: 1.5, speed: 1 });
+// 	}
+// }
 
-export function applyParallax(element) {
-	const smoother = ScrollSmoother.get();
-	smoother.effects(element, {
-		speed: () => 0.5
-	});
-}
+// export function applyParallax(element) {
+// 	const smoother = ScrollSmoother.get();
+// 	smoother.effects(element, {
+// 		speed: () => 0.5
+// 	});
+// }
 
 //* ----------------------------------------------------------------------------
-export function initSectionTriggerMove(trigger, targets) {
-	ScrollTrigger.create({
-		trigger: trigger,
-		/* Начинаем событие, когда верхняя граница элемента-1 находится на 100px ниже верха окна браузера*/
-		start: 'top center',
-		endTrigger: trigger, //* Конец события - конец документа
-		/*Конец событие когда верхняя граница элемента 1 достигнет верха окна браузера*/
-		end: 'bottom center',
-		toggleClass: {
-			targets: targets,
-			className: '_active'
-		},
-		// markers: true
-	});
-}
+// export function initSectionTriggerMove(trigger, targets) {
+// 	ScrollTrigger.create({
+// 		trigger: trigger,
+// 		/* Начинаем событие, когда верхняя граница элемента-1 находится на 100px ниже верха окна браузера*/
+// 		start: 'top center',
+// 		endTrigger: trigger, //* Конец события - конец документа
+// 		/*Конец событие когда верхняя граница элемента 1 достигнет верха окна браузера*/
+// 		end: 'bottom center',
+// 		toggleClass: {
+// 			targets: targets,
+// 			className: '_active'
+// 		},
+// 		// markers: true
+// 	});
+// }
 //* ___________________________ Rotate Icon ____________________________________
 export function tlRotateIcon() {
 	gsap.to('._rotate-el-01', {
@@ -143,6 +143,7 @@ export function animateTitles(element, trigger, endTrigger, start, end) {
 		'<',
 	); // "<" синхронизирует начало обеих анимаций
 }
+
 //* _________________________ Анимация: Parallax _______________________________
 export function cassieEvans() {
 	smoother.effects('.parallax__image-cont', {
@@ -188,10 +189,10 @@ export function skewSetter() {
 	});
 
 	if (window.innerWidth > 490) {
-		smoother.effects('.lag-1', { lag: 2, speed: 1 });
-		smoother.effects('.lag-2', { lag: 1.5, speed: 1.2 });
-		smoother.effects('.col-1', { lag: 1.5, speed: 0.8 });
-		smoother.effects('.col-2', { lag: 1.5, speed: 1 });
+		smootherInstance.effects('.lag-1', { lag: 2, speed: 1 });
+		smootherInstance.effects('.lag-2', { lag: 1.5, speed: 1.2 });
+		smootherInstance.effects('.col-1', { lag: 1.5, speed: 0.8 });
+		smootherInstance.effects('.col-2', { lag: 1.5, speed: 1 });
 	}
 }
 //* ___________________ Анимация: Появление картинок ___________________________

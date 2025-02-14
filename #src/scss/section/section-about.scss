@@ -1,7 +1,7 @@
 @use '../core/all' as *;
 
-.about-content {
-	// .about-content__body
+.about-section {
+	// .about-section__body
 
 	&__body {
 		padding: 12rem 0;
@@ -11,18 +11,17 @@
 		}
 	}
 
-	// .about-content__content
+	// .about-section__content
 	&__content {
 		padding-left: 12vw;
 	}
 
-	// .about-content__row
+	// .about-section__row
 	&__row {
 		display: flex;
 
 		&:nth-child(2) {
-			// justify-content: center;
-			.about-content__column {
+			.about-section__column {
 				@include minmax-690-1920 {
 					flex: 0 1 50%;
 				}
@@ -40,13 +39,13 @@
 		}
 	}
 
-	// .about-content__column
+	// .about-section__column
 	&__column {
 		// flex: 0 1 50%;
 		// display: inline;
 	}
 
-	// .about-content__title
+	// .about-section__title
 	&__title {
 		margin-bottom: 6rem;
 
@@ -73,7 +72,7 @@
 		}
 	}
 
-	// .about-content__info
+	// .about-section__info
 	&__info {
 		@include screen-490 {
 			font-size: 15px;

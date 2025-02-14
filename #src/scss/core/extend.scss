@@ -15,10 +15,10 @@
 .top-box {
 	padding: 6rem 0 8rem;
 
-	padding-top: calc(6rem + 60px);
+	min-height: 100vh;
+	// padding-top: calc(6rem + 60px);
 	@include min-960 {
 		padding: 8rem 0;
-		min-height: 100vh;
 	}
 }
 

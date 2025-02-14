@@ -38,6 +38,10 @@
 
 		i {
 			box-shadow: 0 0 7px black;
+			&::before {
+				text-shadow: none;
+				font-weight: 400;
+			}
 		}
 
 		._button {
@@ -52,21 +56,16 @@
 			transition: all 0.5s ease-in-out;
 			color: $black-color;
 			border-radius: 50%;
-			background: $blue-color-transparent;
+			background: #3a3a3a;
 
 			&:hover {
 				animation: fadeInBackground;
-				// box-shadow: 0 0 4px $blue-color-transparent;
 			}
 		}
 
 		&._rotate {
 			i {
 				scale: -1;
-			}
-
-			._button {
-				color: #747272;
 			}
 		}
 	}

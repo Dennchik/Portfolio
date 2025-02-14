@@ -76,6 +76,18 @@
 	&__logo-wrpper {
 		display: flex;
 		align-items: center;
+
+		@include screen-425 {
+			flex-direction: column;
+			align-items: flex-start;
+
+			.header__text {
+				transform: translateY(-100%);
+				span {
+					font-size: 1rem;
+				}
+			}
+		}
 	}
 
 	// .header__column
@@ -92,9 +104,9 @@
 		}
 
 		.icon-home {
+			color: gray;
 			&::before {
 				font-size: 22px;
-				color: #b3b3d6;
 			}
 		}
 	}
@@ -102,6 +114,15 @@
 	// .header__icon-home
 	&__icon-home {
 		margin-right: 1.6rem;
+		._icon {
+			transition: color 0.4s ease-in-out;
+		}
+		&:hover {
+			._icon {
+				color: #ff8040;
+				@extend .text-shadow-pink;
+			}
+		}
 	}
 
 	// .header__logo
@@ -129,24 +150,20 @@
 			z-index: -1;
 
 			font: {
-				size: 2.4rem;
+				size: 2.2rem;
 				weight: 400;
 			}
 
 			@extend .text-shadow;
 
 			@include screen-960 {
-				font-size: 2rem;
-			}
-
-			@include screen-425 {
-				display: none;
+				font-size: 1.8rem;
 			}
 		}
 	}
 
-	// .header__menu
-	&__menu {
+	// .header__menu-items
+	&__menu-items {
 		user-select: none;
 		display: flex;
 		transition: all 0.4s ease 0s;
@@ -221,7 +238,6 @@
 	.icon-contacts {
 		font-size: 4.4rem;
 		margin-right: 1rem;
-		// text-shadow: 1px 1px 3px #000;
 		transition: all 0.4s ease-in-out;
 		color: $gray;
 
@@ -230,7 +246,7 @@
 		}
 
 		@include screen-690 {
-			font-size: 32px;
+			font-size: 34px;
 		}
 	}
 
