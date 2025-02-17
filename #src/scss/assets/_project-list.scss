@@ -105,7 +105,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 1rem 0;
-		column-gap: 1.6rem;
+		column-gap: 2rem;
 		transition: color 0.4s ease-in;
 
 		@include min-1024 {
@@ -117,10 +117,28 @@
 		span {
 			display: block;
 			text-align: right;
+			font-weight: 100;
+			align-self: end;
 
 			&:nth-child(1) {
 				justify-self: start;
 				white-space: nowrap;
+			}
+
+			@include screen-425 {
+				&:nth-child(2) {
+					justify-self: start;
+					white-space: nowrap;
+					grid-column: 1 / 2;
+				}
+
+				&:nth-child(3) {
+					justify-self: start;
+					white-space: nowrap;
+					grid-column: 2 / 3;
+					grid-row: 3 / -1;
+					align-self: end;
+				}
 			}
 
 			@include screen-425 {
@@ -129,7 +147,7 @@
 		}
 
 		@include screen-425 {
-			grid-template-columns: 1fr;
+			grid-template-columns: 1fr min-content;
 		}
 	}
 
