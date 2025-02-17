@@ -1,4 +1,12 @@
-import { animateTitles, tlVerticalOpacity, tlVerticalReverse, tlRotateIcon, skewSetter, animateImage, tmBounce, cassieEvans } from './animations/animations.jsx';
+import {
+	animateTitles,
+	tlVerticalOpacity,
+	tlRotateIcon,
+	skewSetter,
+	animateImage,
+	tmBounce,
+	cassieEvans
+} from './animations/animations.jsx';
 //* ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
 	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
@@ -6,10 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	tlVerticalOpacity();
 
 	if (!isMobile) {
-		// tlVerticalReverse();
 		skewSetter();
 		tmBounce(
-			'.bonse-01',
+			'.bounce-01',
 			'.tr-row-01',
 			'.tr-row-01',
 			'=50',
@@ -17,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		);
 
 		tmBounce(
-			'.bonse-02',
-			'.triger-02',
-			'.triger-02',
+			'.bounce-02',
+			'.trigger-02',
+			'.trigger-02',
 			'=50',
 			'=50',
 		);
@@ -60,37 +67,37 @@ document.addEventListener('DOMContentLoaded', () => {
 			'=150',
 		);
 		animateImage(
-			'.imgtr-01',
-			'.imgtr-01',
-			'.imgtr-01',
+			'.img-tr-01',
+			'.img-tr-01',
+			'.img-tr-01',
 			'=50',
 			'=50',
 		);
 		animateImage(
-			'.imgtr-02',
-			'.imgtr-02',
-			'.imgtr-02',
+			'.img-tr-02',
+			'.img-tr-02',
+			'.img-tr-02',
 			'=50',
 			'=50',
 		);
 		animateImage(
-			'.imgtr-03',
-			'.imgtr-03',
-			'.imgtr-03',
+			'.img-tr-03',
+			'.img-tr-03',
+			'.img-tr-03',
 			'=50',
 			'=50',
 		);
 		animateImage(
-			'.imgtr-04',
-			'.imgtr-04',
-			'.imgtr-04',
+			'.img-tr-04',
+			'.img-tr-04',
+			'.img-tr-04',
 			'=50',
 			'=50',
 		);
 		animateImage(
-			'.imgtr-05',
-			'.imgtr-05',
-			'.imgtr-05',
+			'.img-tr-05',
+			'.img-tr-05',
+			'.img-tr-05',
 			'=50',
 			'=50',
 		);

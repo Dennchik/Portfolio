@@ -1,7 +1,4 @@
-// import { toggleSidebarMenu } from '../layouts/layouts.js';
-import { refreshScrollTrigger } from '../animations/animations.jsx';
 export function anchorsSmoothScrolling() {
-	refreshScrollTrigger();
 	document.addEventListener('DOMContentLoaded', function () {
 		const anchorLinks = document.querySelectorAll('.anchor-link');
 		anchorLinks.forEach(link => {
@@ -41,4 +38,3 @@ export function anchorsSmoothScrolling() {
 		});
 	});
 }
-

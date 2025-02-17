@@ -13,6 +13,52 @@
 }
 
 //* ----------------------------------------------------------------------------
+.return-button {
+	position: fixed;
+	z-index: 13;
+	top: 50%;
+	left: 0;
+	margin-top: -17px;
+	width: 45px;
+	height: 45px;
+	margin-left: 2vw;
+
+	i {
+		box-shadow: 0 0 7px black;
+
+		&::before {
+			text-shadow: none;
+			font-weight: 400;
+		}
+	}
+
+	._button {
+		font-size: 3.8rem;
+		position: absolute;
+		z-index: 13;
+		left: 0;
+		width: 35px;
+		height: 35px;
+		margin-right: 1rem;
+		cursor: pointer;
+		transition: all 0.5s ease-in-out;
+		color: $black-color;
+		border-radius: 50%;
+		background: #3a3a3a;
+
+		&:hover {
+			animation: fadeInBackground;
+		}
+	}
+
+	&._rotate {
+		i {
+			scale: -1;
+		}
+	}
+}
+
+//* ----------------------------------------------------------------------------
 .checkbox {
 	&._error {
 		.checkbox__label::before {
@@ -149,6 +195,7 @@
 }
 
 .t-01901 {
+	font-size: 28px;
 	@include minmax-490-1920 {
 		font-size: calc(15px + (28 - 15) * ((100vw - 490px) / (1920 - 490)));
 	}
@@ -201,17 +248,11 @@
 }
 
 button {
-	transition: color 0.5s ease-in-out;
 	position: relative;
-	z-index: 9;
-	padding: 1.6rem 5rem;
+	padding: 1.6rem 0;
 	text-transform: uppercase;
 	font-weight: 400;
 	overflow: hidden;
-
-	span {
-		text-shadow: 1px 1px 1px #000;
-	}
 }
 
 .btn-grad {

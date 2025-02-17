@@ -16,7 +16,6 @@ html(lang="ru")
 		block script
 			script(defer="defer" src="@@webRoot/js/app.min.js")
 			script(defer="defer" src="@@webRoot/js/main.min.js")
-			//- script(defer="defer" src="@@webRoot/js/dinamic.min.js")
 
 		block title
 		- var text
@@ -24,7 +23,6 @@ html(lang="ru")
 
 	body
 		include ../modules/preloader
-		//- include ../modules/preloader-logo
 		include ../includes/mixins
 		.wrapper#holder
 			.page(data-page="index")
@@ -34,15 +32,10 @@ html(lang="ru")
 						.main-content#wrapper
 							._content#content
 								block main-content
-					//- block menu-float
-						nav._menu-float
-							//- include ../chunks/menu-float
 					block button
-						._aside#scrollButton
+						.return-button#scrollButton
 							+iconfont('angle-down', '_button')
+				block content-hidden
 				block burger-menu
 					include ../assets/burger-menu
 				block project-list
-					//- block modal
-					//- 	._form-modal
-					//- 		include ../chunks/form-modal

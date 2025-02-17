@@ -1,8 +1,7 @@
 @use '../core/all' as *;
 
-.about-section {
-	// .about-section__body
-
+.section-intro {
+	// .section-intro__body
 	&__body {
 		padding: 12rem 0;
 
@@ -11,17 +10,17 @@
 		}
 	}
 
-	// .about-section__content
+	// .section-intro__content
 	&__content {
 		padding-left: 12vw;
 	}
 
-	// .about-section__row
+	// .section-intro__row
 	&__row {
 		display: flex;
 
 		&:nth-child(2) {
-			.about-section__column {
+			.section-intro__column {
 				@include minmax-690-1920 {
 					flex: 0 1 50%;
 				}
@@ -39,13 +38,7 @@
 		}
 	}
 
-	// .about-section__column
-	&__column {
-		// flex: 0 1 50%;
-		// display: inline;
-	}
-
-	// .about-section__title
+	// .section-intro__title
 	&__title {
 		margin-bottom: 6rem;
 
@@ -72,7 +65,7 @@
 		}
 	}
 
-	// .about-section__info
+	// .section-intro__info
 	&__info {
 		@include screen-490 {
 			font-size: 15px;

@@ -14,9 +14,7 @@
 
 .top-box {
 	padding: 6rem 0 8rem;
-
 	min-height: 100vh;
-	// padding-top: calc(6rem + 60px);
 	@include min-960 {
 		padding: 8rem 0;
 	}
@@ -51,6 +49,7 @@
 		scale: 1.2;
 		transition: scale 0.5s ease-in-out;
 	}
+
 	&.swiper-pagination-lock {
 		display: none;
 	}
@@ -213,8 +212,8 @@
 .gradient-border-bottom {
 	background-image: linear-gradient(
 		to left top,
-		rgb(29, 34, 46) 45%,
-		$black-color 71%
+		rgb(52, 62, 85) 25%,
+		transparent 75%
 	);
 }
 
@@ -269,9 +268,7 @@
 		0 0 10px rgba(204, 255, 0, 0.267);
 }
 
-// background: linear-gradient(to right, #04d9ff 20%, #ffff 50%, #04d9ff 80%);
 //! ----------------------------------------------------------------------------
-
 .border-present {
 	position: absolute;
 	display: block;
@@ -407,8 +404,6 @@
 	}
 
 	&._active {
-		// text-shadow: 2px 2px 3px #000;
-
 		&::before {
 			width: 45%;
 		}
@@ -447,6 +442,7 @@
 		grid-template-rows: 1fr;
 	}
 }
+
 //! ----------------------------------------------------------------------------
 .transform-perspective {
 	transform-style: preserve-3d;
@@ -455,8 +451,8 @@
 
 	.transform-box {
 		transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+
 		&:hover {
-			transform: rotateX(0) translateZ(0);
 			opacity: 0.3 !important;
 			transform-origin: 50% -100%;
 			transform: rotateX(-16deg) translateZ(-22px);

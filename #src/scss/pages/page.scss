@@ -2,7 +2,7 @@
 
 .page {
 	overflow: hidden;
-	height: 100%;
+	width: 100%;
 
 	// .page__header
 	&__header {
@@ -22,52 +22,6 @@
 		width: 100%;
 		height: 100%;
 		inset: 0;
-	}
-
-	//. page__aside
-	&__aside {
-		position: fixed;
-		z-index: 13;
-		left: 0;
-		transform: translateY(-50%);
-		margin-top: -17px;
-		top: 50%;
-
-		width: 45px;
-		margin-left: 1rem;
-
-		i {
-			box-shadow: 0 0 7px black;
-			&::before {
-				text-shadow: none;
-				font-weight: 400;
-			}
-		}
-
-		._button {
-			font-size: 3.8rem;
-			position: absolute;
-			z-index: 13;
-			left: 0;
-			width: 35px;
-			height: 35px;
-			margin-right: 1rem;
-			cursor: pointer;
-			transition: all 0.5s ease-in-out;
-			color: $black-color;
-			border-radius: 50%;
-			background: #3a3a3a;
-
-			&:hover {
-				animation: fadeInBackground;
-			}
-		}
-
-		&._rotate {
-			i {
-				scale: -1;
-			}
-		}
 	}
 
 	// .page__fade-in
@@ -140,13 +94,12 @@
 		opacity: 0; /* Изначально невидимая */
 		animation: none; /* Без анимации по умолчанию */
 		transform-origin: center center; /* Точка трансформации - центр */
-		transition:
-			transform 1.75s ease,
-			opacity 1.75s ease; /* Плавные переходы */
+		transition: transform 1.75s ease,
+		opacity 1.75s ease; /* Плавные переходы */
 		background: linear-gradient(
-			-45deg,
-			rgba(32, 25, 60, 70%),
-			rgba(2, 1, 1, 0.7) 70%
+										-45deg,
+										rgba(32, 25, 60, 70%),
+										rgba(2, 1, 1, 0.7) 70%
 		);
 
 		// backdrop-filter: blur(10px);
@@ -202,6 +155,18 @@
 		background-color: $black-color;
 		z-index: 9;
 		@extend .gradient-border-before;
+	}
+
+	// .main-content__project-list
+	&__project-list {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: 13;
+		pointer-events: none;
+		transition: all 0.7s ease-in-out;
 	}
 }
 

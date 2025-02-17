@@ -37,7 +37,7 @@
 		@extend .box-shadow;
 
 		&::before {
-			animation: fadeInGradient 0.7s ease-in-out forwards;
+			animation: fadeInGradient 1.9s ease-in-out forwards;
 			opacity: 1;
 		}
 
@@ -78,13 +78,9 @@
 		align-items: center;
 
 		@include screen-425 {
-			flex-direction: column;
-			align-items: flex-start;
-
 			.header__text {
-				transform: translateY(-100%);
 				span {
-					font-size: 1rem;
+					font-size: 1.2rem;
 				}
 			}
 		}
@@ -208,7 +204,6 @@
 
 		@extend .text-shadow;
 		@extend .link_split;
-		color: $luminescent-orange;
 
 		&:not(:first-child) {
 			opacity: 1;

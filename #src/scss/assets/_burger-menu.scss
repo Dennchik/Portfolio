@@ -1,9 +1,11 @@
 @use '../core/all' as *;
+
 .accelerate {
 	transform: translate3d(0, 0, 0);
 	transform-style: preserve-3d;
 	backface-visibility: hidden;
 }
+
 //* ----------------------------------------------------------------------------
 .burger-menu {
 	pointer-events: all;
@@ -71,12 +73,11 @@
 		position: relative;
 		height: 100%;
 
-		transform-origin: 0% 50%;
-		background: rgba(20, 20, 24, 0.925);
+		transform-origin: 0 50%;
+		background: $background-color;
 		text-shadow: none;
 
 		h1 {
-			font-weight: 100;
 			color: gray;
 			font-size: 4.4rem;
 			font-weight: 700;
@@ -101,7 +102,7 @@
 	&__menu-header {
 		padding: 10px;
 		line-height: 1;
-		border-bottom: 1px solid rgba(128, 128, 128, 0.322);
+		border-bottom: 1px solid $border-color;
 		display: flex;
 		gap: 1.6rem;
 	}
@@ -128,7 +129,7 @@
 
 		padding: 16px 18px 16px 16px;
 		align-self: start;
-		color: #222222;
+		color: #222;
 		font-size: 2.4rem;
 	}
 
@@ -139,6 +140,7 @@
 
 	&.hide {
 		pointer-events: none;
+
 		.burger-menu__menu {
 			transform: rotateY(20deg);
 		}
@@ -153,7 +155,7 @@
 	&__menu-footer {
 		width: 100%;
 		padding: 10px;
-		border-top: 1px solid rgba(128, 128, 128, 0.322);
+		border-top: 1px solid $border-color;
 	}
 
 	// .burger-menu__download
@@ -163,7 +165,7 @@
 		justify-content: space-evenly;
 	}
 
-	// .burger-menu__linck
+	// .burger-menu__link
 	&__icon-link {
 		&:not(:last-child) {
 			margin-right: 1rem;

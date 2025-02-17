@@ -12,13 +12,16 @@ block title
 
 block header 
 	header.page__header
-		include ../layouts/header 
+		include ../layouts/header
 block main-content
 	section.main-content__sections
 		include ../section/section-performance
 	section.main-content__sections#about
-		include ../section/about-content
+		include ../section/section-intro
 	section.main-content__sections#project
 		include ../section/section-project
+block content-hidden
+	include ../chunks/content-hidden
 block project-list
-	include ../assets/project-list
+	aside.main-content__project-list
+		include ../assets/project-list

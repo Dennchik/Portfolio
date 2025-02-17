@@ -1,7 +1,7 @@
 .header
 	._container
 		._content
-			a(href="@@webRoot/index.html" alt="image")._column.el-logo.transform-perspective
+			a(href="@@webRoot/index.html")._column.el-logo.transform-perspective
 				._logo-wrpper.transform-box
 					._logo
 						img(src="@@webRoot/img/header/logo.png")
@@ -11,7 +11,7 @@
 				a(href="@@webRoot/index.html" data-da="bp-2" data-da-position="0" data-da-resolution="768")._icon-home
 					+iconfont('home', '_icon')
 				._menu
-					ul._menu-items(data-da="bp-1" data-da-position="0" data-da-resolution="768" ) 
+					ul._menu-items(data-da="bp-1" data-da-position="0" data-da-resolution="768" )
 						li._item
 							a(href="#project" data-letters="Проекты")._link-key.anchor-link
 								| Проекты 
@@ -21,9 +21,10 @@
 						li._item
 							a(href="#contacts" data-letters="Контакты")._link-key.anchor-link.anchor-link
 								| Контакты
-				a.el-community__contact(href="mailto:awdes@yandex.ru?subject=🤝%20Давайте%20поговорим%20о%20сотрудничестве")
+				a.el-community__contact(href="mailto:awdes@yandex" +
+				".ru?subject=🤝%20Информация%20о%20проекте.%20Давайте%20поговорим.")
 					+iconfont('contacts', '_icon')
-					.el-community__content 
+					.el-community__content
 						span.el-community__title Скажи привет! 
 				._burger-button
 					include ../assets/burger-button
