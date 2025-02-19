@@ -145,6 +145,7 @@ contentButtons.forEach(contentButton => {
 		boxContent.classList.remove('_hide');
 		document.body.classList.remove('no-scroll');
 		contentHidden.classList.remove('_hide');
+		hideButton.classList.remove('_hide');
 
 		itemFooters.forEach(itemFooter => itemFooter.classList.remove('with-border'));
 
@@ -159,6 +160,7 @@ contentButtons.forEach(contentButton => {
 const tablinks = document.querySelectorAll('.tab-link');
 const tabContents = document.querySelectorAll('.tab-content');
 const itemFooters = document.querySelectorAll('.content-hidden__item-footer');
+const hideButton = document.querySelector('.project-buttons');
 
 tablinks.forEach((tabLink, i) => {
 	tabLink.addEventListener('click', () => {
@@ -167,7 +169,7 @@ tablinks.forEach((tabLink, i) => {
 
 		tablinks.forEach(link => link.classList.remove('_active'));
 		tabContents.forEach(content => content.classList.remove('_active'));
-
+		hideButton.classList.add('_hide');
 		itemFooter.classList.add('with-border');
 		document.body.classList.add('no-scroll');
 		tabLink.classList.add('_active');

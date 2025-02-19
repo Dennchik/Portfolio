@@ -194,16 +194,7 @@
 	}
 
 	&__link-key {
-		position: relative;
-		outline: none;
-		line-height: 1;
-		transition: color 0s 0.5s;
-		display: inline-block;
 		font-weight: 300;
-		white-space: nowrap;
-
-		@extend .text-shadow;
-		@extend .link_split;
 
 		&:not(:first-child) {
 			opacity: 1;

@@ -9,14 +9,12 @@
 }
 
 .page__main-content {
-	transition: opacity 0.9s ease-in;
+	transition: all 0.9s ease-in;
 	opacity: 1;
 
 	&._hide {
 		pointer-events: none;
-		opacity: 0.1;
-		transition: opacity 0.9s ease-in;
-		mix-blend-mode: difference;
+		opacity: 0;
 	}
 }
 
@@ -62,12 +60,11 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	mix-blend-mode: difference;
 
 	// .content-hidden__image
 	&._hide {
 		.content-hidden__image {
-			opacity: 0.5;
+			opacity: 0.2;
 			scale: 1;
 		}
 	}
@@ -78,18 +75,18 @@
 	}
 
 	&__image {
-		opacity: 0;
 		position: fixed;
 		scale: 0.3;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: url('../img/parallax/pic-01.png') center no-repeat;
+		opacity: 0;
+		background: url('../img/parallax/pic-01.png') center / cover no-repeat;
 		transition:
 			opacity 0.7s,
 			scale 0.5s ease-in;
-		background-size: cover;
+		mix-blend-mode: difference;
 		filter: grayscale(1) sepia(0) saturate(0.5) contrast(0.9) brightness(0.4);
 	}
 
@@ -130,6 +127,10 @@
 		padding: 0 2rem 0 10vw;
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;
+
+		@include screen-375 {
+			padding-left: 8vw;
+		}
 	}
 
 	// .content-hidden__item-heading
@@ -143,6 +144,7 @@
 
 	// .content-hidden__item-text
 	&__item-text {
+		font-weight: 100;
 	}
 
 	.split__line {
@@ -221,16 +223,8 @@
 
 		// .item-footer__link
 		&__link {
-			position: relative;
-			outline: none;
-			line-height: 1;
-			transition: color 0s 0.5s;
-			display: inline-block;
 			font-weight: 300;
-			white-space: nowrap;
 			text-transform: uppercase;
-			@extend .text-shadow;
-			@extend .link_split;
 		}
 	}
 
@@ -256,14 +250,11 @@
 				text-transform: uppercase;
 				text-align: center;
 				font-family: $font-default;
-				font-weight: normal;
+				font-weight: 100;
 				letter-spacing: normal;
 				line-height: 1;
 				max-width: 30ch;
 				text-align: left;
-				// transform-origin: 50% -80%;
-				// transform: translate(0px, 150%) rotate(5deg);
-				// transition: all 0.8s cubic-bezier(0.6, -0.28, 0.74, 0.05);
 				@extend .text-shadow;
 			}
 
