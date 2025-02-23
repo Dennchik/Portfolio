@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, Observer,
 
 //* _____________________ Конфигурация - ScrollTrigger _________________________
 ScrollTrigger.normalizeScroll(false);
-ScrollTrigger.config({ignoreMobileResize: true});
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 //* ----------------------------------------------------------------------------
 const smoother = ScrollSmoother.create({
@@ -67,9 +67,9 @@ export function tlRotateIcon() {
 		scrollTrigger: {
 			trigger: '._rotate-el-01',
 			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней
-													 // границы экрана
+			// границы экрана
 			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы
-											// экрана
+			// экрана
 			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
 			// markers: true, // Для отладки (убрать в продакшене)
 		}
@@ -80,26 +80,32 @@ export function tlRotateIcon() {
 		scrollTrigger: {
 			trigger: '._rotate-el-02',
 			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней
-													 // границы экрана
+			// границы экрана
 			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы
-											// экрана
+			// экрана
 			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
 			// markers: true, // Для отладки (убрать в продакшене)
 		}
 	});
 }
-
+//* ___________________________ "applyParallax" ________________________________
+export function applyParallax(element) {
+	const smoother = ScrollSmoother.get();
+	smoother.effects(element, {
+		speed: () => 0.5
+	});
+}
 //* __________________ Плавное исчезновение "performance" ______________________
 export function tlVerticalOpacity() {
-	gsap.to('.el-4', {
+	gsap.to('.el-4, .bg-section', {
 		opacity: 0, // Исчезает полностью
 		ease: 'none', // Равномерное изменение без ускорений
 		scrollTrigger: {
 			trigger: '.performance',
 			start: 'top top', // Начало анимации, когда `.performance` на 80% вниз от
-												// верхней границы экрана
+			// верхней границы экрана
 			end: 'bottom top', // Конец анимации, когда `.performance` полностью ушел
-												 // вверх
+			// вверх
 			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
 			// markers: true, // Для отладки (убрать в продакшене)
 		}
@@ -107,23 +113,23 @@ export function tlVerticalOpacity() {
 }
 
 //* _______________________ Плавное появление "Waves" __________________________
-// export function tlVerticalReverse() {
-// 	gsap.to('.vertical-reverse', {
-// 		opacity: 0.5, // Появление элемента
-// 		ease: 'none', // Равномерное изменение без ускорений
-// 		scrollTrigger: {
-// 			trigger: '.performance',
-// 			/* Начало анимации, когда `.performance` на 80% вниз от верхней
-// 			границы экрана */
-// 			start: 'top top',
-// 			/* Конец анимации, когда `.performance` полностью ушел
-// 			вверх */
-// 			end: 'bottom top',
-// 			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
-// 			// markers: true, // Для отладки (убрать в продакшене)
-// 		}
-// 	});
-// }
+export function tlVerticalReverse() {
+	gsap.to('.vertical-reverse', {
+		opacity: 0.5, // Появление элемента
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '.performance',
+			/* Начало анимации, когда `.performance` на 80% вниз от верхней
+			границы экрана */
+			start: 'top top',
+			/* Конец анимации, когда `.performance` полностью ушел
+			вверх */
+			end: 'bottom top',
+			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	});
+}
 
 //* ____________ Плавное появление заголовков (Анимация Titles) ________________
 export function animateTitles(element, trigger, endTrigger, start, end) {
@@ -147,10 +153,10 @@ export function animateTitles(element, trigger, endTrigger, start, end) {
 
 	// Анимация для прозрачности с большей продолжительностью
 	timeline.from(element, {
-			opacity: 0,
-			duration: 1.2, // Увеличиваем продолжительность для opacity
-			ease: 'power1.out', // Мягкая анимация
-		},
+		opacity: 0,
+		duration: 1.2, // Увеличиваем продолжительность для opacity
+		ease: 'power1.out', // Мягкая анимация
+	},
 		'<',
 	); // "<" синхронизирует начало обеих анимаций
 }
@@ -201,10 +207,10 @@ export function skewSetter() {
 	});
 
 	if (window.innerWidth > 490) {
-		smootherInstance.effects('.lag-1', {lag: 2, speed: 1});
-		smootherInstance.effects('.lag-2', {lag: 1.5, speed: 1.2});
-		smootherInstance.effects('.col-1', {lag: 1.5, speed: 0.8});
-		smootherInstance.effects('.col-2', {lag: 1.5, speed: 1});
+		smootherInstance.effects('.lag-1', { lag: 2, speed: 1 });
+		smootherInstance.effects('.lag-2', { lag: 1.5, speed: 1.2 });
+		smootherInstance.effects('.col-1', { lag: 1.5, speed: 0.8 });
+		smootherInstance.effects('.col-2', { lag: 1.5, speed: 1 });
 	}
 }
 

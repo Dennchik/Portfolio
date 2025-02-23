@@ -1,19 +1,24 @@
 import {
 	animateTitles,
 	tlVerticalOpacity,
+	tlVerticalReverse,
 	tlRotateIcon,
 	skewSetter,
 	animateImage,
 	tmBounce,
-	cassieEvans
+	cassieEvans,
+	applyParallax
 } from './animations/animations.jsx';
 //* ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
 	const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-	cassieEvans();
-	tlVerticalOpacity();
 
+	const bgSection = document.querySelector('.bg-section');
+	const parallax = document.querySelector('.parallax');
+	tlVerticalOpacity();
+	tlVerticalReverse();
 	if (!isMobile) {
+		cassieEvans();
 		skewSetter();
 		tmBounce(
 			'.bounce-01',
@@ -101,6 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			'=50',
 			'=50',
 		);
+		bgSection.style.display = 'none';
+	} else {
+		parallax.style.display = 'none';
+		bgSection.style.display = 'block';
+		applyParallax('.bg-section');
 	}
 
 
