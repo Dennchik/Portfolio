@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			'=50',
 			'=50',
 		);
-
 		animateTitles(
 			'.split-01',
 			'.split-trigger-01',
@@ -106,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			'=50',
 			'=50',
 		);
+
 		bgSection.style.display = 'none';
 	} else {
 		parallax.style.display = 'none';
