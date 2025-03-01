@@ -1,7 +1,7 @@
 import {
 	animateTitles,
-	tlVerticalOpacity,
-	tlVerticalReverse,
+	// tlVerticalOpacity,
+	// tlVerticalReverse,
 	tlRotateIcon,
 	skewSetter,
 	animateImage,
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const bgSection = document.querySelector('.bg-section');
 	const parallax = document.querySelector('.parallax');
 
-	tlVerticalOpacity();
-	tlVerticalReverse();
+	// tlVerticalOpacity();
+	// tlVerticalReverse();
 	if (!isMobile) {
 		cassieEvans();
 		skewSetter();
