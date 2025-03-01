@@ -7,7 +7,7 @@ import {
 	animateImage,
 	tmBounce,
 	cassieEvans,
-	applyParallax
+	// applyParallax
 } from './animations/animations.jsx';
 //* ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	} else {
 		parallax.style.display = 'none';
 		bgSection.style.display = 'block';
-		applyParallax('.bg-section');
+		// applyParallax('.bg-section');
 	}
 
 
