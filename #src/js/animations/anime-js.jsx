@@ -73,6 +73,17 @@ export function timeLineTextItem() {
 		duration: 750,
 	});
 	timeline.add({
+		targets: '.el-1',
+		translateY: [200, 0],
+		opacity: [0, 1], duration: 1250,
+		delay: anime.stagger(50, { start: 50 }),
+		easing: 'easeInOutSine',
+		begin: function (anim) {
+			anim.animatables.forEach(function (animatable) {
+				animatable.target.style.transition = 'opacity 0.3s ease-out';
+			});
+		}
+	}).add({
 		targets: '.el-2',
 		opacity: [0, 0.7],
 		translateX: [1500, 0],
@@ -83,17 +94,6 @@ export function timeLineTextItem() {
 		begin: function (anim) {
 			anim.animatables.forEach(function (animatable) {
 				animatable.target.style.transition = 'all 0.3s ease-out';
-			});
-		}
-	}).add({
-		targets: '.el-1',
-		translateY: [200, 0],
-		opacity: [0, 1], duration: 1250,
-		delay: anime.stagger(50, { start: 50 }),
-		easing: 'easeInOutSine',
-		begin: function (anim) {
-			anim.animatables.forEach(function (animatable) {
-				animatable.target.style.transition = 'opacity 0.3s ease-out';
 			});
 		}
 	}).add({

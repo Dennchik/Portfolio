@@ -99,6 +99,10 @@
 				padding-left: 12vw;
 				justify-self: end;
 			}
+
+			@include screen-320 {
+				padding-left: 9vw;
+			}
 		}
 
 		h1 {
@@ -135,6 +139,9 @@
 				@include screen-490 {
 					font-size: 39px;
 				}
+			}
+			@include screen-320 {
+				padding-left: 0;
 			}
 		}
 

@@ -1,13 +1,13 @@
 import {
 	animateTitles,
-	// tlVerticalOpacity,
-	// tlVerticalReverse,
+	tlVerticalOpacity,
+	tlVerticalReverse,
 	tlRotateIcon,
 	skewSetter,
 	animateImage,
 	tmBounce,
 	cassieEvans,
-	// applyParallax
+	applyParallax
 } from './animations/animations.jsx';
 //* ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const bgSection = document.querySelector('.bg-section');
 	const parallax = document.querySelector('.parallax');
 
-	// tlVerticalOpacity();
-	// tlVerticalReverse();
 	if (!isMobile) {
+		tlVerticalOpacity();
+		tlVerticalReverse();
 		cassieEvans();
 		skewSetter();
 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	} else {
 		parallax.style.display = 'none';
 		bgSection.style.display = 'block';
-		// applyParallax('.bg-section');
+		applyParallax('.bg-section');
 	}
 
 

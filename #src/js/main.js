@@ -16,11 +16,14 @@ import {
 	timeLineHeaderItem,
 	timeLineTextItem,
 } from './animations/anime-js.jsx';
-
+//* ----------------------------------------------------------------------------
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 document.addEventListener('DOMContentLoaded', function () {
-	const textItem = document.querySelector('.performance__text');
-	if (textItem) {
+	const el2 = document.querySelector('.el-2');
+	if (!isMobile) {
 		timeLineTextItem();
+	} else {
+		el2.style.transform = 'translateX(-7px) scaleX(0.7) scaleY(1.5)';
 	}
 
 	returnToSavedPosition();
@@ -38,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	dateContainer.innerHTML = `<div class="day">${day}</div> <div class="data-wrapper">
 <div class="month">${month}</div><div class="status"><p>Доступен</br> для&nbsp;работы</p></div></div>`;
-
 
 	//* --------------------------- Animation Header -----------------------------
 	const header = document.querySelector('.header');

@@ -58,8 +58,8 @@ export function refreshScrollTrigger() {
 // Конец события - конец документа /*Конец событие когда верхняя граница
 // элемента 1 достигнет верха окна браузера*/ end: 'bottom center',
 // toggleClass: { targets: targets, className: '_active' }, // markers: true
-// }); } * ___________________________ Rotate Icon
-// ____________________________________
+// }); }
+//  * ___________________________ Rotate Icon __________________________________
 export function tlRotateIcon() {
 	gsap.to('._rotate-el-01', {
 		rotate: -720, // постоянное вращение
@@ -278,23 +278,3 @@ export function tmBounce(target, trigger, endTrigger, start, end) {
 	});
 }
 
-//* __________________ Анимация: Иконок при наведении __________________________
-// export function iconWiggle(target) {
-// 	gsap.to(target, {
-// 		duration: 0.5,
-// 		ease: CustomWiggle.create('myWiggle', {
-// 			wiggles: 10,   // количество колебаний (начните с 10 и корректируйте по
-// 										 // вкусу)
-// 			strength: 5,   // амплитуда колебаний (подберите оптимальное значение)
-// 			type: 'uniform',
-// 			// endAtStart: true,
-// 		}),
-// 		x: -20,
-// 		// Смещение по оси X (можно задать "+=10" для относительного смещения)
-// 		endAtStart: true,
-// 		// включает обратную анимацию
-// 		yoyo: true,
-// 		// Повторяет анимацию один раз (т.е. Туда и обратно)
-// 		repeat: 10
-// 	});
-// }
