@@ -138,6 +138,8 @@
 	// .footer__text
 	&__text {
 		font-size: 28px;
+		@extend .text-shadow;
+
 		span {
 			white-space: nowrap;
 		}
