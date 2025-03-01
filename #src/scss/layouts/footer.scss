@@ -44,10 +44,6 @@
 				grid-row: 1 / 2;
 			}
 
-			@include screen-425 {
-				// justify-self: center;
-			}
-
 			@include screen-320 {
 				min-width: 150px;
 			}
@@ -77,6 +73,7 @@
 
 	// .footer__info
 	&__info {
+		opacity: 0.7;
 		margin-left: -8rem;
 		width: min-content;
 		font-family: $font-family-exclude;
@@ -92,16 +89,16 @@
 			line-height: 1;
 
 			&:nth-child(2) {
-				margin-top: -80px;
+				margin-top: -40px;
 
 				@include minmax-320-1920 {
 					margin-top: calc(
-						-10px + (-80 - (-10)) * ((100vw - 320px) / (1920 - 320))
+						-12px + (-40 - (-12)) * ((100vw - 320px) / (1920 - 320))
 					);
 				}
 
 				@include screen-320 {
-					margin-top: -20px;
+					margin-top: -12px;
 				}
 			}
 

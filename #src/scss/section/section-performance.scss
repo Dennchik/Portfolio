@@ -68,12 +68,11 @@
 
 		&:nth-child(2) {
 			display: grid;
-			grid-template-columns: min-content max-content;
+			grid-template-columns: min-content 1fr;
 			justify-content: space-between;
 
 			@include screen-690 {
 				grid-template-columns: 1fr;
-				justify-items: end;
 			}
 
 			.performance__column {
@@ -98,6 +97,7 @@
 		&.bounce-01 {
 			@include screen-690 {
 				padding-left: 12vw;
+				justify-self: end;
 			}
 		}
 
@@ -105,18 +105,31 @@
 			font-family: $font-family-exclude;
 			text-transform: uppercase;
 			color: gray;
+			padding-left: 2vw;
 
 			span {
 				pointer-events: none;
 				font-size: 128px;
 				letter-spacing: -2px;
+				line-height: 100%;
 
-				&:last-child {
-					line-height: 100%;
+				@include minmax-320-1920 {
+					&:last-child {
+						margin-top: calc(
+							-12px + (-40 - (-12)) * ((100vw - 320px) / (1920 - 320))
+						);
+					}
 				}
 
 				@include minmax-490-1920 {
 					font-size: calc(39px + (128 - 39) * ((100vw - 490px) / (1920 - 490)));
+				}
+
+				@include screen-320 {
+					&:last-child {
+						margin-top: -12px;
+						padding-left: 0;
+					}
 				}
 
 				@include screen-490 {
@@ -129,7 +142,8 @@
 			width: min-content;
 		}
 		&:nth-child(2) {
-			max-width: 54.963rem;
+			display: flex;
+			justify-content: end;
 		}
 	}
 
@@ -180,6 +194,7 @@
 
 	// .performance__text
 	&__text {
+		max-width: 54.963rem;
 		font-weight: 300;
 		@extend .text-shadow;
 
