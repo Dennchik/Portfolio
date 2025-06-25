@@ -4,8 +4,11 @@ mixin style(href)
 mixin icons(href)
 	link(rel="icon" type="image/x-icon" href=href)
 mixin script(src)
-	script(defer="defer" type="text/javascript" src=src)
-
+	script(defer src=src) 
+//-! mixin iconFont ----------------------------------
+mixin iconfont(mod, classes)
+	i(class='icon-' + mod + ' ' + classes)
+		block
 //-! Mxin link & attributes --------------------------
 mixin link(id, href, name)
 	a(class=id, href=href)&attributes(attributes) 
@@ -17,10 +20,6 @@ mixin btn-link(type, text, mod)
 	a(class=mod + '' type=type)=text
 	block
 
-//-! mixin iconFont		
-mixin iconfont(mod, classes)
-	i(class='icon-' + mod + ' ' + classes)
-		block
 
 //-! Mxin list «rest arguments».
 mixin list-item(list, link, alink, name)
@@ -54,4 +53,4 @@ mixin layout
 			//- Do nothing
 	+set('main')
 	+set('side')
- 
+

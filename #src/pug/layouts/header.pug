@@ -4,11 +4,11 @@
 			a(href="@@webRoot/index.html")._column.el-logo.transform-perspective
 				._logo-wrpper.transform-box
 					._logo
-						img(src="@@webRoot/img/header/logo.png")
+						img(src="@@webRoot/img/header/logo.png" alt="logo")
 					._text
 						span Александр Васильев
 			._column.el-community
-				a(href="@@webRoot/index.html" data-da="bp-2" data-da-position="0" data-da-resolution="768")._icon-home
+				a(href="@@webRoot/index.html" data-da="bp-2" data-da-position="0" data-da-resolution="768" aria-label="На главную")._icon-home
 					+iconfont('home', '_icon')
 				._menu
 					ul._menu-items(data-da="bp-1" data-da-position="0" data-da-resolution="768" )
@@ -27,3 +27,4 @@
 						span.el-community__title Скажи привет! 
 				._burger-button
 					include ../assets/burger-button
+

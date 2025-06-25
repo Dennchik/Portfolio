@@ -31,7 +31,7 @@
 }
 
 .animated-elements {
-	&._trasform-reverse {
+	&._transform-reverse {
 		.animation-line {
 			transform: translate(0px, -150%) rotate(-5deg);
 		}
@@ -112,6 +112,7 @@
 	&__wrapper {
 		overflow: hidden;
 		justify-self: start;
+
 		&:nth-child(2) {
 			margin-top: -15px;
 		}
@@ -136,10 +137,6 @@
 	// .content-hidden__item-heading
 	&__item-heading {
 		transform-origin: 0 50%;
-	}
-
-	// .content-hidden__split-item
-	&__split-item {
 	}
 
 	// .content-hidden__item-text
@@ -248,7 +245,6 @@
 				z-index: 1;
 				margin-top: 0;
 				text-transform: uppercase;
-				text-align: center;
 				font-family: $font-default;
 				font-weight: 100;
 				letter-spacing: normal;

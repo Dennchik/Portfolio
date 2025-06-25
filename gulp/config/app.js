@@ -127,10 +127,14 @@ export const app = {
 	},
 	pug: {
 		pretty: true,
-		plugins: [pugbem]
+		plugins: [pugbem],
+		doctype: 'html'
 	},
 	htmlMin: {
-		collapseWhitespace: true
+		collapseWhitespace: true,
+		removeAttributeQuotes: true,
+		collapseBooleanAttributes: true, // ← ключевой момент!
+		removeRedundantAttributes: true,
 	},
 	renameScss: {
 		extname: '.css',

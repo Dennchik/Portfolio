@@ -14,15 +14,14 @@ export function pugJade() {
 			}))
 		}))
 		.pipe(data(function () {
+			// return JSON.parse(fs.readFileSync($.path.json.readFile));
 			const jsonString = fs.readFileSync($.path.json.readFile).toString();
-			const json = JSON.parse(jsonString);
-			return {
-				...json,
-				webRoot: '.', // или './', в зависимости от твоей структуры
-			};
+			return JSON.parse(jsonString);
+
+
 		}))
 		.pipe(pug($.app.pug))
-		.pipe($.fileInclude($.app.include))
+		// .pipe($.fileInclude($.app.include))
 		.pipe(webpHtml())
 		.pipe(htmlmin($.app.htmlMin))
 		.pipe($.gulp.dest($.path.pug.dest))

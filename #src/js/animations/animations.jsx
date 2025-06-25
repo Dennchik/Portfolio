@@ -26,9 +26,9 @@ const smoother = ScrollSmoother.create({
 });
 
 //* _______________________ Создание ScrollTrigger _____________________________
-export function refreshScrollTrigger() {
-	return ScrollTrigger.refresh();
-}
+// export function refreshScrollTrigger() {
+// 	return ScrollTrigger.refresh();
+// }
 
 // export function LagTextFunction() {
 // 	const smoother = ScrollSmoother.get();
@@ -88,13 +88,14 @@ export function tlRotateIcon() {
 		}
 	});
 }
+
 //* ___________________________ "applyParallax" ________________________________
-export function applyParallax(element) {
-	const smoother = ScrollSmoother.get();
-	smoother.effects(element, {
-		speed: () => 0.5
-	});
-}
+// export function applyParallax(element) {
+// 	const smoother = ScrollSmoother.get();
+// 	smoother.effects(element, {
+// 		speed: () => 0.5
+// 	});
+// }
 //* __________________ Плавное исчезновение "performance" ______________________
 export function tlVerticalOpacity() {
 	gsap.to('.el-4, .bg-section', {
@@ -120,10 +121,10 @@ export function tlVerticalReverse() {
 		scrollTrigger: {
 			trigger: '.performance',
 			/* Начало анимации, когда `.performance` на 80% вниз от верхней
-			границы экрана */
+			 границы экрана */
 			start: 'top top',
 			/* Конец анимации, когда `.performance` полностью ушел
-			вверх */
+			 вверх */
 			end: 'bottom top',
 			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
 			// markers: true, // Для отладки (убрать в продакшене)
@@ -195,7 +196,9 @@ export function skewSetter() {
 	// Создаем быстрый сеттер для свойства skewY.
 	const setSkew = gsap.quickTo('.grid-box__item, .col-1, .col-2', 'skewY');
 	// Ограничиваем значение наклона от -20 до 20 градусов.
-	const clampSkew = gsap.utils.clamp(-5, 5);
+
+	const clampSkew = gsap.utils.clamp(-3, 3);
+
 	// Получаем экземпляр ScrollSmoother.
 	const smootherInstance = ScrollSmoother.get();
 

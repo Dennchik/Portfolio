@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			'=50',
 			'=50',
 		);
+		setTimeout(() => {
+			tlRotateIcon();
+		}, 2000);
 
 		bgSection.style.display = 'none';
 	} else {
@@ -114,7 +117,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 
-	setTimeout(() => {
-		tlRotateIcon();
-	}, 2000);
+
 });

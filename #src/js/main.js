@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (!dateContainer) return;
 
 	let now = new Date();
-	let options = { month: 'short' }; // Сокращённое название месяца
+	let options = {month: 'short'}; // Сокращённое название месяца
 	let day = now.getDate();
 	let month = new Intl.DateTimeFormat('ru-RU', options).format(now);
 
@@ -108,7 +108,7 @@ const listContent = document.querySelector('.main-content__project-list');
 itemButton.addEventListener('click', () => {
 	const backgroundColorTransparent = getComputedStyle(
 		document.documentElement).getPropertyValue(
-			'--background-color-transparent');
+		'--background-color-transparent');
 	projectList.classList.add('_open-list');
 	listContent.style.pointerEvents = 'all';
 	listContent.style.backgroundColor = backgroundColorTransparent;
@@ -140,7 +140,7 @@ contentButtons.forEach(contentButton => {
 		const activeElement = elementItems.querySelector('._active');
 		activeElement.classList.remove('with-border');
 		activeElement.classList.remove('_active');
-		animatedElements.classList.add('_trasform-reverse');
+		animatedElements.classList.add('_transform-reverse');
 		animatedElements.classList.remove('_content-open');
 		pageHeader.classList.remove('_transform');
 		pageContent.classList.remove('_hide');
@@ -149,27 +149,28 @@ contentButtons.forEach(contentButton => {
 		contentHidden.classList.remove('_hide');
 		hideButton.classList.remove('_hide');
 
-		itemFooters.forEach(itemFooter => itemFooter.classList.remove('with-border'));
+		itemFooters.forEach(
+			itemFooter => itemFooter.classList.remove('with-border'));
 
 		setTimeout(() => {
-			animatedElements.classList.remove('_trasform-reverse');
+			animatedElements.classList.remove('_transform-reverse');
 		}, 900);
 	});
 });
 
 //* ----------------------------------------------------------------------------
 // with-border
-const tablinks = document.querySelectorAll('.tab-link');
+const tabLinks = document.querySelectorAll('.tab-link');
 const tabContents = document.querySelectorAll('.tab-content');
 const itemFooters = document.querySelectorAll('.content-hidden__item-footer');
 const hideButton = document.querySelector('.project-buttons');
 
-tablinks.forEach((tabLink, i) => {
+tabLinks.forEach((tabLink, i) => {
 	tabLink.addEventListener('click', () => {
 		const tabContent = tabContents[i];
 		const itemFooter = itemFooters[i];
 
-		tablinks.forEach(link => link.classList.remove('_active'));
+		tabLinks.forEach(link => link.classList.remove('_active'));
 		tabContents.forEach(content => content.classList.remove('_active'));
 		hideButton.classList.add('_hide');
 		itemFooter.classList.add('with-border');
