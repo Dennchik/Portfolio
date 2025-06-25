@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (!dateContainer) return;
 
 	let now = new Date();
-	let options = {month: 'short'}; // Сокращённое название месяца
+	let options = { month: 'short' }; // Сокращённое название месяца
 	let day = now.getDate();
 	let month = new Intl.DateTimeFormat('ru-RU', options).format(now);
 
@@ -89,6 +89,8 @@ anchorLinks.forEach(anchorLink => {
 		if (!accelerate.classList.contains('hide')) {
 			accelerate.classList.add('hide');
 			document.body.classList.remove('no-scroll');
+		} else {
+			buttonItems.classList.remove('_open-menu');
 		}
 	});
 });
@@ -108,7 +110,7 @@ const listContent = document.querySelector('.main-content__project-list');
 itemButton.addEventListener('click', () => {
 	const backgroundColorTransparent = getComputedStyle(
 		document.documentElement).getPropertyValue(
-		'--background-color-transparent');
+			'--background-color-transparent');
 	projectList.classList.add('_open-list');
 	listContent.style.pointerEvents = 'all';
 	listContent.style.backgroundColor = backgroundColorTransparent;
