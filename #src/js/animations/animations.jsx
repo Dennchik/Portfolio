@@ -63,6 +63,7 @@ export function cassieEvans() {
 		}
 	});
 }
+
 //* ___________________ Анимация: lag & skew - колонок _________________________
 export function skewSetter() {
 	// Создаем быстрый сеттер для свойства skewY.
@@ -88,160 +89,166 @@ export function skewSetter() {
 		smootherInstance.effects('.col-2', { lag: 1.5, speed: 1 });
 	}
 }
-// //  * ___________________________ Rotate Icon __________________________________
-// export function tlRotateIcon() {
-// 	gsap.to('._rotate-el-01', {
-// 		rotate: -720, // постоянное вращение
-// 		ease: 'none', // Равномерное изменение без ускорений
-// 		scrollTrigger: {
-// 			trigger: '._rotate-el-01',
-// 			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней
-// 			// границы экрана
-// 			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы
-// 			// экрана
-// 			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
-// 			// markers: true, // Для отладки (убрать в продакшене)
-// 		}
-// 	});
-// 	gsap.to('._rotate-el-02', {
-// 		rotate: -720, // постоянное вращение
-// 		ease: 'none', // Равномерное изменение без ускорений
-// 		scrollTrigger: {
-// 			trigger: '._rotate-el-02',
-// 			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней
-// 			// границы экрана
-// 			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы
-// 			// экрана
-// 			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
-// 			// markers: true, // Для отладки (убрать в продакшене)
-// 		}
-// 	});
-// }
-// //* __________________ Плавное исчезновение "performance" ______________________
-// export function tlVerticalOpacity() {
-// 	gsap.to('.el-4, .bg-section', {
-// 		opacity: 0, // Исчезает полностью
-// 		ease: 'none', // Равномерное изменение без ускорений
-// 		scrollTrigger: {
-// 			trigger: '.performance',
-// 			start: 'top top', // Начало анимации, когда `.performance` на 80% вниз от
-// 			// верхней границы экрана
-// 			end: 'bottom top', // Конец анимации, когда `.performance` полностью ушел
-// 			// вверх
-// 			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
-// 			// markers: true, // Для отладки (убрать в продакшене)
-// 		}
-// 	});
-// }
-// //* _______________________ Плавное появление "Waves" __________________________
-// export function tlVerticalReverse() {
-// 	gsap.to('.vertical-reverse', {
-// 		opacity: 0.5, // Появление элемента
-// 		ease: 'none', // Равномерное изменение без ускорений
-// 		scrollTrigger: {
-// 			trigger: '.performance',
-// 			/* Начало анимации, когда `.performance` на 80% вниз от верхней
-// 			 границы экрана */
-// 			start: 'top top',
-// 			/* Конец анимации, когда `.performance` полностью ушел
-// 			 вверх */
-// 			end: 'bottom top',
-// 			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
-// 			// markers: true, // Для отладки (убрать в продакшене)
-// 		}
-// 	});
-// }
-// //* ____________ Плавное появление заголовков (Анимация Titles) ________________
-// export function animateTitles(element, trigger, endTrigger, start, end) {
-// 	const timeline = gsap.timeline({
-// 		scrollTrigger: {
-// 			trigger: trigger,
-// 			start: `top bottom-${start}`,
-// 			endTrigger: endTrigger,
-// 			end: `top bottom-${end}`,
-// 			toggleActions: 'play none none reverse',
-// 			// markers: true,
-// 		},
-// 	});
 
-// 	// Анимация для смещения по Y
-// 	timeline.from(element, {
-// 		y: 300,
-// 		duration: 0.8, // Продолжительность смещения
-// 		ease: 'power1.out', // Мягкая анимация
-// 	});
+//  * ___________________________ Rotate Icon __________________________________
+export function tlRotateIcon() {
+	gsap.to('._rotate-el-01', {
+		rotate: -720, // постоянное вращение
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '._rotate-el-01',
+			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней
+			// границы экрана
+			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы
+			// экрана
+			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	});
+	gsap.to('._rotate-el-02', {
+		rotate: -720, // постоянное вращение
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '._rotate-el-02',
+			start: 'top bottom', // Начало анимации, когда `.trigger` выше нижней
+			// границы экрана
+			end: 'top top', // Конец анимации, когда `.trigger` выше нижней границы
+			// экрана
+			scrub: true, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	});
+}
 
-// 	// Анимация для прозрачности с большей продолжительностью
-// 	timeline.from(element, {
-// 		opacity: 0,
-// 		duration: 1.2, // Увеличиваем продолжительность для opacity
-// 		ease: 'power1.out', // Мягкая анимация
-// 	},
-// 		'<',
-// 	); // "<" синхронизирует начало обеих анимаций
-// }
-// //* ___________________ Анимация: Появление картинок ___________________________
-// export function animateImage(element, trigger, endTrigger, start, end) {
-// 	const timeline = gsap.timeline({
-// 		scrollTrigger: {
-// 			trigger: trigger,
-// 			start: `top bottom-${start}`,
-// 			endTrigger: endTrigger,
-// 			end: `top bottom-${end}`,
-// 			toggleActions: 'play none none reverse',
-// 			// markers: true,
-// 		},
-// 	});
+//* __________________ Плавное исчезновение "performance" ______________________
+export function tlVerticalOpacity() {
+	gsap.to('.el-4, .bg-section', {
+		opacity: 0, // Исчезает полностью
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '.performance',
+			start: 'top top', // Начало анимации, когда `.performance` на 80% вниз от
+			// верхней границы экрана
+			end: 'bottom top', // Конец анимации, когда `.performance` полностью ушел
+			// вверх
+			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	});
+}
 
-// 	// Анимация для смещения по Y
-// 	timeline.from(element, {
-// 		y: 300,
-// 		duration: 0.7, // Продолжительность смещения
-// 		ease: 'slow(0.1,2,true)',
-// 		// ease: 'expoScale(10,2.5,none)', 
-// 	});
-// }
-// //* ____________________ Анимация: Появление текста ____________________________
-// export function tmBounce(target, trigger, endTrigger, start, end) {
-// 	// Create a custom bounce ease:
-// 	CustomBounce.create('Bounce', {
-// 		strength: 0.2,
-// 		squash: 1,
-// 		endAtStart: false,
-// 		// squashID: 'Bounce-squash',
-// 	});
+//* _______________________ Плавное появление "Waves" __________________________
+export function tlVerticalReverse() {
+	gsap.to('.vertical-reverse', {
+		opacity: 0.5, // Появление элемента
+		ease: 'none', // Равномерное изменение без ускорений
+		scrollTrigger: {
+			trigger: '.performance',
+			/* Начало анимации, когда `.performance` на 80% вниз от верхней
+			 границы экрана */
+			start: 'top top',
+			/* Конец анимации, когда `.performance` полностью ушел
+			 вверх */
+			end: 'bottom top',
+			scrub: 2, // Гладкая привязка к скроллу с небольшой задержкой
+			// markers: true, // Для отладки (убрать в продакшене)
+		}
+	});
+}
 
-// 	const timeline = gsap.timeline({
-// 		scrollTrigger: {
-// 			trigger: trigger,
-// 			start: `center bottom-${start}`,
-// 			endTrigger: endTrigger,
-// 			end: `center bottom-${end}`,
-// 			toggleActions: 'play none none reverse',
-// 			// markers: true,
-// 		}
-// 	});
+//* ____________ Плавное появление заголовков (Анимация Titles) ________________
+export function animateTitles(element, trigger, endTrigger, start, end) {
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: trigger,
+			start: `top bottom-${start}`,
+			endTrigger: endTrigger,
+			end: `top bottom-${end}`,
+			toggleActions: 'play none none reverse',
+			// markers: true,
+		},
+	});
 
-// 	CustomEase.create('Custom-Ease', 'M0,0 C0.126,0.382 0,0.999 0.5,0.8 1,0.6' +
-// 		' 0.818,1.001 1,1 ');
-// 	// Выполните отскок, воздействуя на свойство "y".
-// 	timeline.from(target, {
-// 		duration: 1.2,
-// 		y: 200,
-// 		scaleX: 0.1,
-// 		scaleY: 0.1,
-// 		opacity: 0,
-// 		ease: 'Custom-Ease',
-// 		transformOrigin: 'center bottom',
-// 	});
+	// Анимация для смещения по Y
+	timeline.from(element, {
+		y: 300,
+		duration: 0.8, // Продолжительность смещения
+		ease: 'power1.out', // Мягкая анимация
+	});
 
-// 	// Одновременно делайте скручивание и растяжку:
-// 	timeline.to(target, {
-// 		duration: 1.2,
-// 		opacity: 1,
-// 		ease: 'Bounce',
-// 	});
-// }
+	// Анимация для прозрачности с большей продолжительностью
+	timeline.from(element, {
+		opacity: 0,
+		duration: 1.2, // Увеличиваем продолжительность для opacity
+		ease: 'power1.out', // Мягкая анимация
+	},
+		'<',// "<" синхронизирует начало обеих анимаций
+	);
+}
+
+//* ___________________ Анимация: Появление картинок ___________________________
+export function animateImage(element, trigger, endTrigger, start, end) {
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: trigger,
+			start: `top bottom-${start}`,
+			endTrigger: endTrigger,
+			end: `top bottom-${end}`,
+			toggleActions: 'play none none reverse',
+			// markers: true,
+		},
+	});
+
+	// Анимация для смещения по Y
+	timeline.from(element, {
+		y: 300,
+		duration: 0.7, // Продолжительность смещения
+		ease: 'slow(0.1,2,true)',
+		// ease: 'expoScale(10,2.5,none)', 
+	});
+}
+
+//* ____________________ Анимация: Появление текста ____________________________
+export function tmBounce(target, trigger, endTrigger, start, end) {
+	// Create a custom bounce ease:
+	CustomBounce.create('Bounce', {
+		strength: 0.2,
+		squash: 1,
+		endAtStart: false,
+		// squashID: 'Bounce-squash',
+	});
+
+	const timeline = gsap.timeline({
+		scrollTrigger: {
+			trigger: trigger,
+			start: `center bottom-${start}`,
+			endTrigger: endTrigger,
+			end: `center bottom-${end}`,
+			toggleActions: 'play none none reverse',
+			// markers: true,
+		}
+	});
+
+	CustomEase.create('Custom-Ease', 'M0,0 C0.126,0.382 0,0.999 0.5,0.8 1,0.6' +
+		' 0.818,1.001 1,1 ');
+	// Выполните отскок, воздействуя на свойство "y".
+	timeline.from(target, {
+		duration: 1.2,
+		y: 200,
+		scaleX: 0.1,
+		scaleY: 0.1,
+		opacity: 0,
+		ease: 'Custom-Ease',
+		transformOrigin: 'center bottom',
+	});
+
+	// Одновременно делайте скручивание и растяжку:
+	timeline.to(target, {
+		duration: 1.2,
+		opacity: 1,
+		ease: 'Bounce',
+	});
+}
 
 
 
